@@ -43,7 +43,7 @@
                 
                 <!-- Back Button -->
                 <a href="{{ url('/') }}" class="btn-back">
-                    ← Back to Home
+                    ← Back to Hom
                 </a>
                 
             </div>
