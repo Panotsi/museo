@@ -1,96 +1,91 @@
+body {
+    overflow-x: hidden;
+}
+
 .navbar {
     background-color: rgba(0, 0, 0, 0.8);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 .navbar-brand {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #c5992a;
+    color: #c5992a !important;
 }
+.nav-link {
+    color: white !important;
+}
+
 .carousel-item {
     height: 85vh;
     min-height: 400px;
     position: relative;
-    background-color: #000;
-}    
+}
 .carousel-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(50%);
 }
-
 .carousel-caption {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 90%;
+    max-width: 700px;
     text-align: center;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
-
-/* Button Styling */
+.carousel-caption h1 {
+    font-size: 3rem;
+}
+.carousel-caption p {
+    font-size: 1.2rem;
+}
 .btn-custom {
-    padding: 12px 35px;
-    font-size: 1.1rem;
+    padding: 10px 25px;
+    font-size: 0.9rem;
     background-color: #c5992a;
-    color: white;
-    border: none;
+    color: #fff;
     border-radius: 50px;
-    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 .btn-custom:hover {
     background-color: #e6b93d;
-    transform: scale(1.05);
-    color: white;
 }
 
-/* About Section */
 .about-section {
     background-color: #c5992a;
     padding: 60px 0;
-    text-align: center;
+    color: #fff;
 }
 .modern-font {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 3.5rem;
     font-weight: 700;
-    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin: 0;
 }
 .about-subtitle {
-    color: #ffffff;
     font-size: 1.2rem;
-    margin-top: 10px;
     font-weight: 300;
 }
 
-/* Activity Section Styling */
 .activity-section {
     background-color: #f8f9fa;
     padding: 80px 0;
 }
-
 .section-title {
     font-size: 2.5rem;
-    color: #2c3e50;
     font-family: 'Playfair Display', serif;
-    position: relative;
+    color: #2c3e50;
     display: inline-block;
     margin-bottom: 10px;
+    position: relative;
 }
-
 .section-title::after {
     content: '';
     display: block;
@@ -102,103 +97,78 @@
 }
 
 .activity-card {
-    background: white;
+    background: #fff;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.4s ease;
-    height: 100%;
-    margin-bottom: 30px;
+    transition: 0.4s;
 }
-
-/* Hover Effect: Card Moves Up */
 .activity-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
-
-/* Image Container */
 .img-container {
     width: 100%;
     height: 220px;
     overflow: hidden;
-    position: relative;
 }
-
-/* Hover Effect: Image Zoom */
 .img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-
 .activity-card:hover .img-container img {
     transform: scale(1.1);
 }
-
 .card-content {
-    padding: 25px;
+    padding: 20px;
     position: relative;
 }
-
 .date-badge {
     background-color: #c5992a;
-    color: white;
+    color: #fff;
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
     position: absolute;
-    top: -40px; 
-    left: 25px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    top: -25px;
+    left: 20px;
 }
-
 .title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: #333;
-    margin-top: 10px;
+    margin: 10px 0;
 }
-
 .description {
     font-size: 0.95rem;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
-
 .read-more-btn {
     text-decoration: none;
     color: #c5992a;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    display: inline-block;
 }
-
 .read-more-btn:hover {
     color: #b3861a;
 }
 
-/* Mobile Responsiveness Fix */
 @media (max-width: 768px) {
     .carousel-item {
         height: 60vh;
     }
-    
     .carousel-caption h1 {
         font-size: 2rem;
-        padding: 0 15px;
     }
-    
     .carousel-caption p {
-        font-size: 0.9rem;
-        display: none;
+        font-size: 1rem;
     }
-
+    .btn-custom {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
     .modern-font {
         font-size: 2.2rem;
     }
