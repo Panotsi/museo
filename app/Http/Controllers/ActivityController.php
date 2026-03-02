@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Activity;
+
+class ActivityController extends Controller
+{
+    public function show($id)
+    {
+        $activity = Activity::findOrFail($id);
+
+        return view('museum.show', compact('activity'));
+    }
+}
