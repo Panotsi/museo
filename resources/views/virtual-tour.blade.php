@@ -3,7 +3,6 @@
 <head>
     <title>Tambobong Virtual Tour</title>
 
-    <!-- Pannellum CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
 
     <style>
@@ -22,7 +21,6 @@
 
 <div id="panorama"></div>
 
-<!-- Pannellum JS -->
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
 
 <script>

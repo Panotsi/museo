@@ -41,7 +41,7 @@
         <div class="carousel-inner">
             @foreach($slides as $key => $slide)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" data-bs-interval="5000">
-                    <img src="{{ asset($slide['image']) }}" alt="{{ $slide['title'] }}">
+                    <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
                     <div class="carousel-caption">
                         <h1>{{ $slide['title'] }}</h1>
                         <p>{{ $slide['description'] }}</p>
@@ -67,19 +67,28 @@
         </div>
     </section>
 
-    <section class="activity-section">
-        <div class="container text-center">
-            <h2 class="section-title">Upcoming Activities</h2>
-            <p class="text-muted">Discover events and programs at Tambobong Museum</p>
-            <div class="row g-4 justify-content-center mt-4">
+       <section id="activities" class="activity-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title fw-bold">Upcoming Activities</h2>
+                    <p class="text-muted">Discover events and programs at Tambobong Museum</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                
                 @forelse($activities as $activity)
                     <div class="col-lg-4 col-md-6">
                         <div class="activity-card">
                             <div class="img-container">
                                 <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
+                                <div class="img-overlay"></div>
                             </div>
+                            
                             <div class="card-content">
-                                <span class="date-badge">{{ \Carbon\Carbon::parse($activity->date)->format('M d, Y') }}</span>
+                                <span class="date-badge">
+                                    {{ \Carbon\Carbon::parse($activity->date)->format('M d, Y') }}
+                                </span>
                                 <h3 class="title">{{ $activity->title }}</h3>
                                 <p class="description">{{ Str::limit($activity->description, 100) }}</p>
                                 <a href="{{ route('museum.show', $activity->id) }}" class="read-more-btn">Read More →</a>
@@ -87,8 +96,11 @@
                         </div>
                     </div>
                 @empty
-                    <p>No upcoming activities found.</p>
+                    <div class="col-12 text-center">
+                        <p>No upcoming activities found.</p>
+                    </div>
                 @endforelse
+
             </div>
         </div>
     </section>

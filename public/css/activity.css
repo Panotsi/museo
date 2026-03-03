@@ -1,5 +1,3 @@
-/* activity.css */
-
 body {
     font-family: 'Inter', sans-serif;
     background-color: #fbe1a7;
@@ -11,7 +9,6 @@ body {
     padding: 60px 20px;
 }
 
-/* Header */
 .activity-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -26,7 +23,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Image */
 .image-container {
     width: 100%;
     border-radius: 12px;
@@ -40,14 +36,12 @@ body {
     display: block;
 }
 
-/* Description */
 .activity-description {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #495057;
 }
 
-/* Button */
 .btn-back {
     display: inline-block;
     padding: 12px 24px;
@@ -64,7 +58,6 @@ body {
     background-color: #a97b05;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .page-wrapper {
         padding: 30px 15px;

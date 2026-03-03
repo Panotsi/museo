@@ -55,7 +55,6 @@ class HomeController extends Controller
         ];
         $activities = Activity::orderBy('date', 'asc')->get();
 
-        // Pass the $slides variable to the view
         return view('museum.index', compact('slides', 'activities'));
 
     }
