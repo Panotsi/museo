@@ -1,7 +1,7 @@
 body {
     overflow-x: hidden;
 }
-
+/*to make the navbar background transparent*/
 .navbar {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
@@ -11,24 +11,25 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #c5992a !important;
+    color: #c5992a !important;/*important to override bootstrap*/
 }
 .nav-link {
     color: white !important;
 }
 
 .carousel-item {
-    height: 85vh;
-    min-height: 400px;
+    height: 85vh;/*85% of screen height*/
+    min-height: 400px; /*Minimum height for smaller screens*/
     position: relative;
 }
 .carousel-item img {
     width: 100%;
-    height: 100%;
+    height: 100%;/*to cover the entire carousel area*/
     object-fit: cover;
-    filter: brightness(50%);
+    filter: brightness(50%); /*for better text visibility*/
 }
 .carousel-caption {
+    /*position the caption in the center*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -75,7 +76,7 @@ body {
 }
 
 .activity-section {
-    background-color: #f8f9fa;
+    background-color: #ebeaea;
     padding: 80px 0;
 }
 
@@ -87,7 +88,7 @@ body {
     display: inline-block;
     margin-bottom: 10px;
 }
-
+/* line under section title */
 .section-title::after {
     content: '';
     display: block;
@@ -107,7 +108,7 @@ body {
     height: 100%;
     margin-bottom: 30px;
 }
-
+/*for the card animations when hovered*/
 .activity-card:hover {
     transform: translateY(-15px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -126,7 +127,7 @@ body {
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-
+/*zoom effect of the image*/
 .activity-card:hover .img-container img {
     transform: scale(1.1);
 }
@@ -182,7 +183,7 @@ body {
         height: 60vh;
     }
     .carousel-caption h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     .carousel-caption p {
         font-size: 1rem;

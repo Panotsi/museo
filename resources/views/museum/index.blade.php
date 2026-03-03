@@ -11,6 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Tambobong</a>
+            <!--for mobile toggle button-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,9 +26,10 @@
             </div>
         </div>
     </nav>
-
+    <!--bootstrap carousel-->
     <div id="museumCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
+            <!--loops through slides from the controller-->
             @foreach($slides as $key => $slide)
                 <button type="button" 
                     data-bs-target="#museumCarousel" 
@@ -41,6 +43,7 @@
         <div class="carousel-inner">
             @foreach($slides as $key => $slide)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" data-bs-interval="5000">
+                    <!--displays the content of the $slide from controller-->
                     <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
                     <div class="carousel-caption">
                         <h1>{{ $slide['title'] }}</h1>
@@ -76,20 +79,23 @@
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
-                
+                <!--loops through the activities from the database-->
                 @forelse($activities as $activity)
                     <div class="col-lg-4 col-md-6">
                         <div class="activity-card">
                             <div class="img-container">
+                                <!--displays the image from storage folder-->
                                 <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
                                 <div class="img-overlay"></div>
                             </div>
                             
                             <div class="card-content">
                                 <span class="date-badge">
+                                    <!--usage of carbon formating method-->
                                     {{ \Carbon\Carbon::parse($activity->date)->format('M d, Y') }}
                                 </span>
                                 <h3 class="title">{{ $activity->title }}</h3>
+                                <!--limits the characters that is shown in the description in the index page-->
                                 <p class="description">{{ Str::limit($activity->description, 100) }}</p>
                                 <a href="{{ route('museum.show', $activity->id) }}" class="read-more-btn">Read More →</a>
                             </div>

@@ -2,7 +2,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #fbe1a7;
 }
-
+/* Centers the content of activities*/
 .page-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -41,7 +41,7 @@ body {
     line-height: 1.8;
     color: #495057;
 }
-
+/*back button style*/
 .btn-back {
     display: inline-block;
     padding: 12px 24px;
