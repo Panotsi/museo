@@ -9,8 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // In a real app, you might fetch these from a Database.
-        // Here we use an array to simulate database records.
         $slides = [
             [
                 'id' => 1,
