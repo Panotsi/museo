@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 
-class ActivityController extends Controller
+class ActivityController
 {
     public function show($id)
     {
