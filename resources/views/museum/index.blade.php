@@ -111,7 +111,7 @@
                                 <h3 class="title">{{ $activity->title }}</h3>
                                 <!--limits the characters that is shown in the description in the index page-->
                                 <p class="description">{{ Str::limit($activity->description, 100) }}</p>
-                                <a href="{{ route('museum.show', $activity->id) }}" class="read-more-btn">Read More →</a>
+                                <a href="{{ route('museum.activity', $activity->id) }}" class="read-more-btn">Read More →</a>
                             </div>
                         </div>
                     </div>
