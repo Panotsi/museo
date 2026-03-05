@@ -67,6 +67,20 @@
         <div class="container">
             <h1 class="modern-font">Tambobong</h1>
             <p class="about-subtitle">Museo kan Agrikulturang Bikolnon</p>
+            <hr>
+            <p class="about-p">The tambobong is more than a structure; it is a symbol of Bikolnon foresight. 
+                Traditionally a small cottage designed to keep rice and other harvest secured, it stands 
+                as the heart of our agricultural heritage. This museum preserves that legacy,
+                showcasing the unique landscapes and practices that have shaped the Bikol Region’s
+                evelopment.
+            </p>
+            <p class="about-p">
+                We celebrate the paratanom and parasirà—the farmers and fishermen whose labor 
+                forms the backbone of our food security. Through their struggles and triumphs, and the 
+                vital initiatives of the Department of Agriculture, we see the true engine of 
+                nation-building. Agriculture is our lifeblood; here, we honor the hands that feed the 
+                community and the soil that sustains us all.
+            </p>
         </div>
     </section>
 

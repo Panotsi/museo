@@ -18,7 +18,7 @@ body {
 }
 
 .carousel-item {
-    height: 85vh;/*85% of screen height*/
+    height: 75vh;/*85% of screen height*/
     min-height: 400px; /*Minimum height for smaller screens*/
     position: relative;
 }
@@ -75,6 +75,16 @@ body {
 .about-subtitle {
     font-size: 1.2rem;
     font-weight: 300;
+}
+.about-section hr{
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid;
+}
+.about-p{
+    width: 70%;
+    margin: 20px auto;
+    text-align: justify;
 }
 
 .activity-section {
