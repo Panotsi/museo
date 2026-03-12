@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambobong</title>
+    <title>Tambobong - Museo kan Agrikulturang Bikolnon</title>
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body>
+<body class="bg-dark text-light">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Tambobong</a>
-            <!--for mobile toggle button-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,17 +28,18 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Exhibits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Visit</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--bootstrap carousel-->
+
+    <!-- Carousel (Home) -->
     <div id="museumCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <!--loops through slides from the controller-->
             @foreach($slides as $key => $slide)
                 <button type="button" 
                     data-bs-target="#museumCarousel" 
@@ -43,7 +53,6 @@
         <div class="carousel-inner">
             @foreach($slides as $key => $slide)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" data-bs-interval="5000">
-                    <!--displays the content of the $slide from controller-->
                     <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
                     <div class="carousel-caption">
                         <h1>{{ $slide['title'] }}</h1>
@@ -63,68 +72,126 @@
         </button>
     </div>
 
-    <section id="about" class="about-section text-center">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h1 class="modern-font">Tambobong</h1>
-            <p class="about-subtitle">Museo kan Agrikulturang Bikolnon</p>
-            <hr>
-            <p class="about-p">The tambobong is more than a structure; it is a symbol of Bikolnon foresight. 
-                Traditionally a small cottage designed to keep rice and other harvest secured, it stands 
-                as the heart of our agricultural heritage. This museum preserves that legacy,
-                showcasing the unique landscapes and practices that have shaped the Bikol Region’s
-                evelopment.
-            </p>
-            <p class="about-p">
-                We celebrate the paratanom and parasirà—the farmers and fishermen whose labor 
-                forms the backbone of our food security. Through their struggles and triumphs, and the 
-                vital initiatives of the Department of Agriculture, we see the true engine of 
-                nation-building. Agriculture is our lifeblood; here, we honor the hands that feed the 
-                community and the soil that sustains us all.
-            </p>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="about-subtitle">Our Heritage</span>
+                    <h1 class="modern-font mb-4">Preserving the Soul of Bicol</h1>
+                    <p class="about-p">
+                        The tambobong is more than a structure; it is a symbol of Bikolnon foresight. 
+                        Traditionally a small cottage designed to keep rice and other harvest secured, it stands 
+                        as the heart of our agricultural heritage. This museum preserves that legacy,
+                        showcasing the unique landscapes and practices that have shaped the Bikol Region's
+                        development.
+                    </p>
+                    <p class="about-p">
+                        We celebrate the paratanom and parasirà—the farmers and fishermen whose labor 
+                        forms the backbone of our food security. Agriculture is our lifeblood; here, we honor 
+                        the hands that feed the community and the soil that sustains us all.
+                    </p>
+                    <a href="#" class="btn btn-custom mt-3">Learn More</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <!-- Replace with your actual image path -->
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Tambobong Heritage" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-       <section id="activities" class="activity-section">
+    <!-- Activities Section -->
+    <section id="activities" class="activity-section">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 text-center">
+            <div class="row text-center mb-5">
+                <div class="col-12">
                     <h2 class="section-title fw-bold">Upcoming Activities</h2>
-                    <p class="text-muted">Discover events and programs at Tambobong Museum</p>
+                    <p class="text-light">Discover events and programs at Tambobong Museum</p>
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
-                <!--loops through the activities from the database-->
                 @forelse($activities as $activity)
                     <div class="col-lg-4 col-md-6">
                         <div class="activity-card">
                             <div class="img-container">
-                                <!--displays the image from storage folder-->
                                 <img src="{{ asset('storage/' . $activity->image) }}" alt="{{ $activity->title }}">
                                 <div class="img-overlay"></div>
                             </div>
                             
                             <div class="card-content">
                                 <span class="date-badge">
-                                    <!--usage of carbon formating method-->
                                     {{ \Carbon\Carbon::parse($activity->date)->format('M d, Y') }}
                                 </span>
                                 <h3 class="title">{{ $activity->title }}</h3>
-                                <!--limits the characters that is shown in the description in the index page-->
                                 <p class="description">{{ Str::limit($activity->description, 100) }}</p>
-                                <a href="{{ route('museum.activity', $activity->id) }}" class="read-more-btn">Read More →</a>
+                                <a href="{{ route('museum.activity', $activity->id) }}" class="read-more-btn">
+                                    Read More <i class="bi bi-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 text-center">
-                        <p>No upcoming activities found.</p>
+                    <div class="col-12 text-center py-5">
+                        <div class="alert alert-dark border">
+                            <p class="mb-0 text-muted">No upcoming activities found at this time.</p>
+                        </div>
                     </div>
                 @endforelse
-
             </div>
         </div>
     </section>
 
+    <!-- Visit Section -->
+    <section id="visit" class="visit-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="map-wrapper rounded overflow-hidden shadow">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8159.324817044189!2d123.26603157597364!3d13.5678322759823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a18cb620beaaab%3A0xf9509a17dfd6976b!2sDepartment%20of%20Agriculture%20-%20Regional%20Field%20Office%20No.5%20Bicol%20Region!5e0!3m2!1sen!2sph!4v1773101738811!5m2!1sen!2sph"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="col-lg-5 ps-lg-5">
+                    <h2 class="visit-title fw-bold mb-4">Plan Your Visit</h2>
+                    <p class="mb-4">Experience the rich agricultural history of the Bicol Region. We are open to the public for guided tours and educational programs.</p>
+                    
+                    <div class="visit-info-box bg-dark p-4 rounded shadow-sm border-start border-4 border-gold">
+                        <h5 class="fw-bold mb-3">Opening Hours</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between mb-2">
+                                <span>Mon - Fri:</span>
+                                <span class="fw-bold">8:00 AM - 5:00 PM</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span>Sat - Sun:</span>
+                                <span class="fw-bold">9:00 AM - 4:00 PM</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="{{ route('virtual-tour') }}" class="btn btn-custom w-100">
+                                <i class="bi bi-vr"></i> Virtual Tour
+                            </a>
+                            <a href="#" class="btn btn-outline-light w-100">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

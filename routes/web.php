@@ -16,3 +16,7 @@ Route::get('/museum/{id}', [ActivityController::class, 'activity'])->name('museu
 Route::get('/virtual-tour', function () {
     return view('virtual-tour');
 });
+
+Route::get('/virtual-tour', function () {
+    return view('virtual-tour');
+})->name('virtual-tour');

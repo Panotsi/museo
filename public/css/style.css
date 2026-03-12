@@ -1,210 +1,286 @@
-body {
-    overflow-x: hidden;
-}
-/*to make the navbar background transparent*/
-.navbar {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 0;
-}
-.navbar-brand {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #c5992a !important;/*important to override bootstrap*/
-}
-.nav-link {
-    color: white !important;
+:root {
+    --primary-gold: #c5992a;
+    --primary-gold-hover: #e6b93d;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color:overflow-x #333;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-color);
+}
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-gold) !important;
+    letter-spacing: 1px;
+}
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: var(--primary-gold) !important;
+}
+
+/* --- CAROUSEL (Home) --- */
 .carousel-item {
-    height: 75vh;/*85% of screen height*/
-    min-height: 400px; /*Minimum height for smaller screens*/
+    height: 85vh;
+    min-height: 500px;
     position: relative;
 }
 .carousel-item img {
     width: 100%;
-    height: 100%;/*to cover the entire carousel area*/
+    height: 100%;
     object-fit: cover;
-    filter: brightness(50%); /*for better text visibility*/
+    filter: brightness(0.6);
 }
 .carousel-caption {
-    /*position the caption in the center*/
-    position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 700px;
-    text-align: center;
+    transform: translateY(-50%);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 .carousel-caption h1 {
-    font-size: 4.5rem;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
     font-weight: 700;
-}
-.carousel-caption p {
-    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #fff;
 }
 .btn-custom {
-    padding: 10px 25px;
-    font-size: 0.9rem;
-    background-color: #c5992a;
+    background-color: var(--primary-gold);
     color: #fff;
+    padding: 12px 30px;
     border-radius: 50px;
     text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 1px;
+    border: none;
+    transition: all 0.3s ease;
 }
 .btn-custom:hover {
-    background-color: #e6b93d;
-}
-
-.about-section {
-    background-color: #c5992a;
-    padding: 60px 0;
+    background-color: var(--primary-gold-hover);
+    transform: translateY(-2px);
     color: #fff;
 }
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
 .modern-font {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    color: var(--primary-gold);
+    line-height: 1.2;
 }
 .about-subtitle {
     font-size: 1.2rem;
-    font-weight: 300;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: block;
 }
-.about-section hr{
-    width: 70%;
-    margin: 20px auto;
-    border: 1px solid;
+.about-p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
 }
-.about-p{
-    width: 70%;
-    margin: 20px auto;
-    text-align: justify;
+.about-image-wrapper {
+    position: relative;
+    padding: 15px;
+}
+.about-image-wrapper img {
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transition: transform 0.5s ease;
+    border: 1px solid var(--border-color);
+}
+.about-image-wrapper:hover img {
+    transform: scale(1.02);
+}
+.about-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--primary-gold);
+    border-radius: 10px;
+    z-index: -1;
 }
 
+/* --- ACTIVITIES SECTION --- */
 .activity-section {
-    background-color: #ebeaea;
-    padding: 80px 0;
+    padding: 100px 0;
+    background-color: var(--dark-bg);
 }
-
 .section-title {
-    font-size: 2.5rem;
-    color: #2c3e50;
     font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-gold);
     position: relative;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
-/* line under section title */
 .section-title::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background: #c5992a;
-    margin: 10px auto 0;
+    background: var(--primary-gold);
+    margin: 15px auto 0;
     border-radius: 2px;
 }
-
 .activity-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: all 0.4s ease;
     height: 100%;
-    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
 }
-/*for the card animations when hovered*/
 .activity-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-color: var(--primary-gold);
 }
-
 .img-container {
     width: 100%;
-    height: 220px;
+    height: 240px;
     overflow: hidden;
     position: relative;
 }
-
 .img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-/*zoom effect of the image*/
 .activity-card:hover .img-container img {
     transform: scale(1.1);
 }
-
 .card-content {
     padding: 25px;
     position: relative;
 }
-
 .date-badge {
-    background-color: #c5992a;
-    color: white;
+    background-color: var(--primary-gold);
+    color: #000;
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
     position: absolute;
-    top: -40px; 
+    top: -20px; 
     left: 25px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
-
 .title {
+    font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #333;
+    color: #fff;
     margin-top: 10px;
 }
-
 .description {
     font-size: 0.95rem;
-    color: #666;
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 20px;
 }
-
 .read-more-btn {
     text-decoration: none;
-    color: #c5992a;
+    color: var(--primary-gold);
     font-weight: 600;
     font-size: 0.9rem;
     transition: color 0.3s;
     display: inline-block;
 }
-
 .read-more-btn:hover {
-    color: #b3861a;
+    color: var(--primary-gold-hover);
 }
 
+/* --- VISIT SECTION --- */
+.visit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.visit-section {
+    padding: 100px 0;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+}
+.map-wrapper {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+}
+.visit-info-box {
+    background-color: var(--dark-bg);
+    border-left: 5px solid var(--primary-gold);
+    color: var(--text-light);
+}
+.border-gold {
+    border-color: var(--primary-gold) !important;
+}
+.visit-section .section-title {
+    color: var(--primary-gold);
+}
+.visit-section p {
+    color: var(--text-muted);
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .carousel-item {
         height: 60vh;
     }
     .carousel-caption h1 {
-        font-size: 3rem;
-    }
-    .carousel-caption p {
-        font-size: 1rem;
-    }
-    .btn-custom {
-        padding: 8px 20px;
-        font-size: 0.8rem;
+        font-size: 2.5rem;
     }
     .modern-font {
         font-size: 2.2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .about-image-wrapper {
+        margin-top: 30px;
+    }
+    .about-image-wrapper::before {
+        top: -10px;
+        right: -10px;
+    }
+    .visit-info-box {
+        margin-top: 30px;
     }
 }
