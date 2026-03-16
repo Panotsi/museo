@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 //calls the file location
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ActivityController;
 
@@ -20,3 +21,7 @@ Route::get('/virtual-tour', function () {
 Route::get('/virtual-tour', function () {
     return view('virtual-tour');
 })->name('virtual-tour');
+
+Route::get('/collections', [CollectionController::class, 'index'])->name('collections');
+
+Route::get('/artifact/{id}', [CollectionController::class, 'show'])->name('artifact.show');

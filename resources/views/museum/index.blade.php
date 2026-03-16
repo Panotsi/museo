@@ -29,7 +29,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collections">Collections</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
@@ -143,6 +143,21 @@
                 @endforelse
             </div>
         </div>
+    </section>
+    <section id="collections" class="py-5 bg-dark">
+
+    <div class="container text-center">
+
+    <h2 class="mb-4">Museum Collections</h2>
+
+    <p>Explore artifacts preserved in the Tambobong Museum.</p>
+
+    <a href="{{ route('collections') }}" class="btn btn-custom">
+    View Collections
+    </a>
+
+    </div>
+
     </section>
 
     <!-- Visit Section -->
