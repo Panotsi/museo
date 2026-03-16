@@ -22,6 +22,7 @@
 
 <thead>
 <tr>
+<th>Image</th>
 <th>Accession Number</th>
 <th>Name</th>
 <th>Material</th>
@@ -30,11 +31,19 @@
 </tr>
 </thead>
 
+
 <tbody>
 
 @foreach($artifacts as $artifact)
 
 <tr>
+
+<td>
+@if($artifact->image)
+<img src="{{ asset('storage/'.$artifact->image) }}" width="80">
+@endif
+</td>
+
 <td>{{ $artifact->accession_number }}</td>
 <td>{{ $artifact->name_of_object }}</td>
 <td>{{ $artifact->material }}</td>

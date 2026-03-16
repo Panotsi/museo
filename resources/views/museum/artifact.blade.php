@@ -9,7 +9,9 @@
     <div class="container mt-5">
 
 <h1>{{ $artifact->name_of_object }}</h1>
-
+@if($artifact->image)
+<img src="{{ asset('storage/'.$artifact->image) }}" width="300">
+@endif
 <p><strong>Accession Number:</strong> {{ $artifact->accession_number }}</p>
 <p><strong>Material:</strong> {{ $artifact->material }}</p>
 <p><strong>Type:</strong> {{ $artifact->type }}</p>

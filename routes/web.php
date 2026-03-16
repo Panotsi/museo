@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AdminController;
 
 //calls the index function in HomeController
 Route::get('/', [HomeController::class, 'index']);
@@ -25,3 +26,20 @@ Route::get('/virtual-tour', function () {
 Route::get('/collections', [CollectionController::class, 'index'])->name('collections');
 
 Route::get('/artifact/{id}', [CollectionController::class, 'show'])->name('artifact.show');
+
+/* ADMIN DASHBOARD */
+Route::get('/admin', [AdminController::class,'index']);
+
+/* ACTIVITIES */
+Route::post('/admin/activity/store',[AdminController::class,'storeActivity']);
+Route::post('/admin/activity/update/{id}',[AdminController::class,'updateActivity']);
+Route::get('/admin/activity/delete/{id}',[AdminController::class,'deleteActivity']);
+
+/* ARTIFACT MANAGEMENT */
+Route::get('/admin/artifact/create',[AdminController::class,'createArtifact']);
+Route::post('/admin/artifact/store',[AdminController::class,'storeArtifact']);
+
+Route::get('/admin/artifact/edit/{id}',[AdminController::class,'editArtifact']);
+Route::post('/admin/artifact/update/{id}',[AdminController::class,'updateArtifact']);
+
+Route::get('/admin/artifact/delete/{id}',[AdminController::class,'deleteArtifact']);

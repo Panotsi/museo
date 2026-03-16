@@ -12,18 +12,24 @@ class Artifact extends Model
         'material',
         'type',
         'remarks',
+
         'excavation_site',
         'excavation_date',
+
         'date_recorded',
         'recorded_by',
+
         'length_cm',
         'height_cm',
         'width_cm',
         'rim_diameter_cm',
         'base_diameter_cm',
         'thickness_cm',
+
         'condition_before',
         'conservation_process',
-        'condition_after'
+        'condition_after',
+
+        'image'
     ];
 }

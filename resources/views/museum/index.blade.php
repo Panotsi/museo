@@ -143,23 +143,44 @@
                 @endforelse
             </div>
         </div>
-    </section>
     <section id="collections" class="py-5 bg-dark">
-
-    <div class="container text-center">
-
-    <h2 class="mb-4">Museum Collections</h2>
-
-    <p>Explore artifacts preserved in the Tambobong Museum.</p>
-
-    <a href="{{ route('collections') }}" class="btn btn-custom">
-    View Collections
-    </a>
-
-    </div>
-
+        <div class="container text-center">
+            <h2 class="mb-5">Museum Collections</h2>
+                <div class="row g-4">
+                    @foreach($artifacts as $artifact)
+                        <div class="col-md-4">
+                            <div class="card bg-dark border-secondary h-100">
+                                @if($artifact->image)
+                                <model-viewer
+                                src="{{ asset('storage/'.$artifact->image) }}"
+                                camera-controls
+                                auto-rotate
+                                style="width:200px; height:150px; margin: 0 auto; padding: 10px;">
+                                </model-viewer>
+                                @endif
+                                    <div class="card-body">
+                                        <h5 style="color: #e0e0e0;">
+                                        {{ $artifact->name_of_object }}
+                                        </h5>
+                                        <p style="color: #a0a0a0">
+                                        {{ $artifact->material }} • {{ $artifact->type }}
+                                        </p>
+                                        <a href="{{ route('artifact.show',$artifact->id) }}"
+                                        class="btn btn-custom btn-sm">
+                                        View Artifact
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            <div class="mt-5">
+                <a href="{{ route('collections') }}" class="btn btn-custom">
+                View Full Collection
+                </a>
+            </div>
+        </div>
     </section>
-
     <!-- Visit Section -->
     <section id="visit" class="visit-section">
         <div class="container">
@@ -208,5 +229,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 </html>
