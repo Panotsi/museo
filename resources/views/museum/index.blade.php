@@ -29,7 +29,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Exhibits</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
