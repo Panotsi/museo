@@ -83,7 +83,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>File</th>
+                    <th>Image</th>
                     <th>Accession</th>
                     <th>Name</th>
                     <th>Material</th>
@@ -97,12 +97,9 @@
                     <td>{{ $artifact->id }}</td>
                     <td>
                 @if($artifact->image)
-                    <model-viewer
-                    src="{{ asset('storage/'.$artifact->image) }}"
-                    camera-controls
-                    auto-rotate
-                    style="width:100px; height:70px;">
-                    </model-viewer>
+                    <img src="{{ asset('storage/'.$artifact->image) }}" 
+                    class="card-img-top"
+                    style="width: 50px; height: 50px;">
                 @endif
                     </td>
                     <td>{{ $artifact->accession_number }}</td>

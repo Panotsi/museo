@@ -30,6 +30,7 @@ class Artifact extends Model
         'conservation_process',
         'condition_after',
 
-        'image'
+        'image',
+        'model_3d'
     ];
 }

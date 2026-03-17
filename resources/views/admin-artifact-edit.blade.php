@@ -11,14 +11,21 @@
     @csrf
         <label>Artifact Image</label><br>
         @if($artifact->image)
-        <model-viewer
-        src="{{ asset('storage/'.$artifact->image) }}"
-        camera-controls
-        auto-rotate
-        style="width:500px; height:400px;">
-        </model-viewer>
+        <img src="{{ asset('storage/'.$artifact->image) }}" 
+        class="card-img-top"
+        style="width: 200px;">
         @endif
         <input type="file" name="image" class="form-control mb-3">
+        <label>3D Model</label>
+            @if($artifact->model_3d)
+            <model-viewer
+            src="{{ asset('storage/'.$artifact->model_3d) }}"
+            camera-controls
+            auto-rotate
+            style="width:200px;">
+            </model-viewer>
+            @endif
+        <input type="file" name="model_3d" class="form-control mb-3">
 
     <h4>Basic Information</h4>
 

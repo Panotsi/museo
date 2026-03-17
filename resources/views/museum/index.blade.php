@@ -152,12 +152,9 @@
                         <div class="col-md-4">
                             <div class="card bg-dark border-secondary h-100">
                                 @if($artifact->image)
-                                <model-viewer
-                                src="{{ asset('storage/'.$artifact->image) }}"
-                                camera-controls
-                                auto-rotate
-                                style="width:200px; height:150px; margin: 0 auto; padding: 10px;">
-                                </model-viewer>
+                                <img src="{{ asset('storage/'.$artifact->image) }}" 
+                                class="card-img-top"
+                                style="width: 50%; height: 50%; margin: 0 auto; padding: 5px;">
                                 @endif
                                     <div class="card-body">
                                         <h5 style="color: #e0e0e0;">

@@ -79,6 +79,11 @@ public function storeArtifact(Request $request)
 {
 
 $image = null;
+$model = null;
+
+if($request->hasFile('model_3d')){
+$model = $request->file('model_3d')->store('model','public');
+}
 
 if($request->hasFile('image')){
 $image = $request->file('image')->store('artifacts','public');
@@ -109,7 +114,8 @@ Artifact::create([
 'conservation_process'=>$request->conservation_process,
 'condition_after'=>$request->condition_after,
 
-'image'=>$image
+'image'=>$image,
+'model_3d'=>$model
 
 ]);
 
@@ -131,6 +137,12 @@ public function updateArtifact(Request $request,$id)
 $artifact = Artifact::findOrFail($id);
 
 $image = $artifact->image;
+
+$model = $artifact->model_3d;
+
+if($request->hasFile('model_3d')){
+$model = $request->file('model_3d')->store('model','public');
+}
 
 if($request->hasFile('image')){
 $image = $request->file('image')->store('artifacts','public');
@@ -161,7 +173,9 @@ $artifact->update([
 'conservation_process'=>$request->conservation_process,
 'condition_after'=>$request->condition_after,
 
-'image'=>$image
+'image'=>$image,
+'model_3d'=>$model
+
 
 ]);
 

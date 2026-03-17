@@ -11,6 +11,8 @@
         @csrf
             <h4>Artifact Image</h4>
                 <input type="file" name="image" class="form-control mb-3">
+            <h4>Artifact Model</h4>
+                <input type="file" name="model_3d" class="form-control mb-3">
         <!-- BASIC INFORMATION -->
             <h4 class="mt-4">Basic Information</h4>
                 <input type="text" name="accession_number" class="form-control mb-2" placeholder="Accession Number">
