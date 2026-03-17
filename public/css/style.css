@@ -21,6 +21,7 @@ body {
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     border-bottom: 1px solid var(--border-color);
+
 }
 .navbar-brand {
     font-family: 'Playfair Display', serif;

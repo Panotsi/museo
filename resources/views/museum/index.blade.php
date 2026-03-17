@@ -141,8 +141,9 @@
                         </div>
                     </div>
                 @endforelse
-            </div>
-        </div>
+            </div> 
+        </div> 
+    </section> 
     <section id="collections" class="py-5 bg-dark">
         <div class="container text-center">
             <h2 class="mb-5">Museum Collections</h2>
