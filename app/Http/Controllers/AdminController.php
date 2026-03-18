@@ -77,49 +77,47 @@ public function createArtifact()
 
 public function storeArtifact(Request $request)
 {
+    $image = null;
+    $model = null;
 
-$image = null;
-$model = null;
+    if($request->hasFile('model_3d')){
+        $model = $request->file('model_3d')->store('model','public');
+    }
 
-if($request->hasFile('model_3d')){
-$model = $request->file('model_3d')->store('model','public');
-}
+    if($request->hasFile('image')){
+        $image = $request->file('image')->store('artifacts','public');
+    }
 
-if($request->hasFile('image')){
-$image = $request->file('image')->store('artifacts','public');
-}
+    Artifact::create([
 
-Artifact::create([
+        'accession_number'=>$request->accession_number,
+        'name_of_object'=>$request->name_of_object,
+        'material'=>$request->material,
+        'type'=>$request->type,
+        'remarks'=>$request->remarks,
 
-'accession_number'=>$request->accession_number,
-'name_of_object'=>$request->name_of_object,
-'material'=>$request->material,
-'type'=>$request->type,
-'remarks'=>$request->remarks,
+        'excavation_site'=>$request->excavation_site,
+        'excavation_date'=>$request->excavation_date,
 
-'excavation_site'=>$request->excavation_site,
-'excavation_date'=>$request->excavation_date,
+        'date_recorded'=>$request->date_recorded,
+        'recorded_by'=>$request->recorded_by,
 
-'date_recorded'=>$request->date_recorded,
-'recorded_by'=>$request->recorded_by,
+        'length_cm'=>$request->length_cm,
+        'height_cm'=>$request->height_cm,
+        'width_cm'=>$request->width_cm,
+        'rim_diameter_cm'=>$request->rim_diameter_cm,
+        'base_diameter_cm'=>$request->base_diameter_cm,
+        'thickness_cm'=>$request->thickness_cm,
 
-'length_cm'=>$request->length_cm,
-'height_cm'=>$request->height_cm,
-'width_cm'=>$request->width_cm,
-'rim_diameter_cm'=>$request->rim_diameter_cm,
-'base_diameter_cm'=>$request->base_diameter_cm,
-'thickness_cm'=>$request->thickness_cm,
+        'condition_before'=>$request->condition_before,
+        'conservation_process'=>$request->conservation_process,
+        'condition_after'=>$request->condition_after,
 
-'condition_before'=>$request->condition_before,
-'conservation_process'=>$request->conservation_process,
-'condition_after'=>$request->condition_after,
+        'image'=>$image,
+        'model_3d'=>$model
+    ]);
 
-'image'=>$image,
-'model_3d'=>$model
-
-]);
-
-return redirect('/admin');
+    return redirect('/admin');
 
 }
 
@@ -127,67 +125,59 @@ return redirect('/admin');
 public function editArtifact($id)
 {
     $artifact = Artifact::findOrFail($id);
-
     return view('admin-artifact-edit',compact('artifact'));
 }
 
 public function updateArtifact(Request $request,$id)
 {
+    $artifact = Artifact::findOrFail($id);
 
-$artifact = Artifact::findOrFail($id);
+    $image = $artifact->image;
 
-$image = $artifact->image;
+    $model = $artifact->model_3d;
 
-$model = $artifact->model_3d;
+    if($request->hasFile('model_3d')){
+        $model = $request->file('model_3d')->store('model','public');
+    }
 
-if($request->hasFile('model_3d')){
-$model = $request->file('model_3d')->store('model','public');
+    if($request->hasFile('image')){
+        $image = $request->file('image')->store('artifacts','public');
+    }
+
+    $artifact->update([
+
+        'accession_number'=>$request->accession_number,
+        'name_of_object'=>$request->name_of_object,
+        'material'=>$request->material,
+        'type'=>$request->type,
+        'remarks'=>$request->remarks,
+
+        'excavation_site'=>$request->excavation_site,
+        'excavation_date'=>$request->excavation_date,
+
+        'date_recorded'=>$request->date_recorded,
+        'recorded_by'=>$request->recorded_by,
+
+        'length_cm'=>$request->length_cm,
+        'height_cm'=>$request->height_cm,
+        'width_cm'=>$request->width_cm,
+        'rim_diameter_cm'=>$request->rim_diameter_cm,
+        'base_diameter_cm'=>$request->base_diameter_cm,
+        'thickness_cm'=>$request->thickness_cm,
+
+        'condition_before'=>$request->condition_before,
+        'conservation_process'=>$request->conservation_process,
+        'condition_after'=>$request->condition_after,
+
+        'image'=>$image,
+        'model_3d'=>$model
+    ]);
+    return redirect('/admin');
 }
-
-if($request->hasFile('image')){
-$image = $request->file('image')->store('artifacts','public');
-}
-
-$artifact->update([
-
-'accession_number'=>$request->accession_number,
-'name_of_object'=>$request->name_of_object,
-'material'=>$request->material,
-'type'=>$request->type,
-'remarks'=>$request->remarks,
-
-'excavation_site'=>$request->excavation_site,
-'excavation_date'=>$request->excavation_date,
-
-'date_recorded'=>$request->date_recorded,
-'recorded_by'=>$request->recorded_by,
-
-'length_cm'=>$request->length_cm,
-'height_cm'=>$request->height_cm,
-'width_cm'=>$request->width_cm,
-'rim_diameter_cm'=>$request->rim_diameter_cm,
-'base_diameter_cm'=>$request->base_diameter_cm,
-'thickness_cm'=>$request->thickness_cm,
-
-'condition_before'=>$request->condition_before,
-'conservation_process'=>$request->conservation_process,
-'condition_after'=>$request->condition_after,
-
-'image'=>$image,
-'model_3d'=>$model
-
-
-]);
-
-return redirect('/admin');
-
-}
-
 
 public function deleteArtifact($id)
 {
     Artifact::destroy($id);
-
     return redirect('/admin');
 }
 

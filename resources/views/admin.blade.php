@@ -118,6 +118,9 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="/logout" class="btn btn-danger">
+        Logout
+        </a>
     </div>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>

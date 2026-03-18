@@ -146,7 +146,7 @@
     </section> 
     <section id="collections" class="py-5 bg-dark">
         <div class="container text-center">
-            <h2 class="mb-5">Museum Collections</h2>
+            <h2 class="mb-5" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color:#c5992a">Museum Collections</h2>
                 <div class="row g-4">
                     @foreach($artifacts as $artifact)
                         <div class="col-md-4">
