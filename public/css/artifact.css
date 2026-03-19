@@ -1,0 +1,45 @@
+body {
+    background-color:#1e1e1e;
+}
+.container h1, h3{
+    color: #c5992a;
+    font-weight: 700;
+}
+.container p{
+    color: #e0e0e0;
+}
+.container li{
+    color: #e0e0e0;
+    padding: 10px 0 0 0;
+    list-style: none;
+}
+.impDetails{
+    display: inline;
+    padding: 0 10px;
+}
+.disContainer{
+    display: flex;
+    background-color:#414141;
+    margin: 5px;
+    border-radius: 5px;
+}
+.model {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.measurement{
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .disContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .model,
+    .measurement {
+        width: 100%;
+    }
+}

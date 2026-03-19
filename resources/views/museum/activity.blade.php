@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-lg-10 col-md-12">
             
             <div class="page-wrapper">
@@ -27,7 +27,7 @@
                     {{ $activity->description }}
                 </p>
                 <a href="{{ url('/') }}" class="btn-back">
-                    <- Back to Home
+                    <- Back
                 </a>
                 
             </div>

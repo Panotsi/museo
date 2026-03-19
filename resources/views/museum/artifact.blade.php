@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <link href="{{ asset('css/artifact.css') }}" rel="stylesheet">
+    <title>Artifact</title>
 </head>
 <body>
-    <div class="container mt-5">
-
-<h1>{{ $artifact->name_of_object }}</h1>
-@if($artifact->image)
-<img src="{{ asset('storage/'.$artifact->image) }}" width="300">
-@endif
-<p><strong>Accession Number:</strong> {{ $artifact->accession_number }}</p>
-<p><strong>Material:</strong> {{ $artifact->material }}</p>
-<p><strong>Type:</strong> {{ $artifact->type }}</p>
-
-<h3>Measurements</h3>
-
-<ul>
-<li>Length: {{ $artifact->length_cm }} cm</li>
-<li>Height: {{ $artifact->height_cm }} cm</li>
-<li>Width: {{ $artifact->width_cm }} cm</li>
-<li>Rim Diameter: {{ $artifact->rim_diameter_cm }} cm</li>
-<li>Base Diameter: {{ $artifact->base_diameter_cm }} cm</li>
-<li>Thickness: {{ $artifact->thickness_cm }} cm</li>
-</ul>
+    <div class="container">
+        <h1>{{ $artifact->name_of_object }}</h1>
+        <p class="impDetails"><strong>Accession Number:</strong> {{ $artifact->accession_number }}</p>
+        <p class="impDetails"><strong>Material:</strong> {{ $artifact->material }}</p>
+        <p class="impDetails"><strong>Type:</strong> {{ $artifact->type }}</p>
+        <div class="disContainer">
+            <div class="model">
+                @if($artifact->model_3d)
+                <model-viewer
+                src="{{ asset('storage/'.$artifact->model_3d) }}"
+                camera-controls
+                auto-rotate
+                style="width: 100%; height: 100%; max-width:300px; height:300px;">
+                </model-viewer>
+                @endif
+            </div>
+            <div class=measurement>
+                <h3>Measurements</h3>
+                <ul>
+                    @if(!is_null($artifact->length_cm))
+                        <li>Length: {{ $artifact->length_cm }} cm</li>
+                    @endif
+                    @if(!is_null($artifact->height_cm))
+                        <li>Height: {{ $artifact->height_cm }} cm</li>
+                    @endif
+                    @if(!is_null($artifact->width_cm))
+                        <li>Width: {{ $artifact->width_cm }} cm</li>
+                    @endif
+                    @if(!is_null($artifact->rim_diameter_cm))
+                        <li>Rim Diameter: {{ $artifact->rim_diameter_cm }} cm</li>
+                    @endif
+                    @if(!is_null($artifact->base_diameter_cm))
+                        <li>Base Diameter: {{ $artifact->base_diameter_cm }} cm</li>
+                    @endif
+                    @if(!is_null($artifact->thickness_cm))
+                        <li>Thickness: {{ $artifact->thickness_cm }} cm</li>
+                    @endif
+                </ul>
+            </div>
+        </div>
 
 <h3>Conservation</h3>
 
@@ -34,8 +55,8 @@
 <p><b>Process:</b> {{ $artifact->conservation_process }}</p>
 
 <p><b>After Treatment:</b> {{ $artifact->condition_after }}</p>
+    </div>
 
-</div>
-
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 </html>
