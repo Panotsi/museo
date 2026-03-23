@@ -16,7 +16,7 @@ class HomeController
                 'id' => 1,
                 'title' => 'USIP',
                 'description' => 'Stories and Myths in Agriculture',
-                'image' => asset('images/image1.jpg'),
+                'image' => asset('images/image1.jpeg'),
                 'button_text' => 'Learn More',
                 'button_link' => '#tickets'
             ],
@@ -24,7 +24,7 @@ class HomeController
                 'id' => 2,
                 'title' => 'UMA',
                 'description' => 'Trade and Farming',
-                'image' => asset('images/image2.jpg'),
+                'image' => asset('images/image2.jpeg'),
                 'button_text' => 'Learn More',
                 'button_link' => '#gallery'
             ],
@@ -32,7 +32,7 @@ class HomeController
                 'id' => 3,
                 'title' => 'UNOG',
                 'description' => 'Rice and Life',
-                'image' => asset('images/image3.jpg'),
+                'image' => asset('images/image3.png'),
                 'button_text' => 'Learn More',
                 'button_link' => '#dinosaurs'
             ],
@@ -40,7 +40,7 @@ class HomeController
                 'id' => 4,
                 'title' => 'UGMA',
                 'description' => 'Celebrations of Plentiful Harvest',
-                'image' => asset('images/image4.jpg'),
+                'image' => asset('images/image4.jpeg'),
                 'button_text' => 'Learn More',
                 'button_link' => '#dinosaurs'
             ],
@@ -48,7 +48,7 @@ class HomeController
                 'id' => 5,
                 'title' => 'USWAG',
                 'description' => 'Progress through Agriculture',
-                'image' => asset('images/image5.jpg'),
+                'image' => asset('images/image5.jpeg'),
                 'button_text' => 'Learn More',
                 'button_link' => '#dinosaurs'
             ],

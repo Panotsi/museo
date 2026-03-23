@@ -96,7 +96,7 @@
                 <div class="col-lg-6">
                     <div class="about-image-wrapper">
                         <!-- Replace with your actual image path -->
-                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1000&auto=format&fit=crop" 
+                        <img src="{{ asset('images/logo.png') }}" 
                              alt="Tambobong Heritage" class="img-fluid rounded shadow-lg">
                     </div>
                 </div>
