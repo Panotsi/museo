@@ -64,3 +64,7 @@ Route::get('/verify-otp',[AdminAuthController::class,'showOtp']);
 Route::post('/verify-otp',[AdminAuthController::class,'verifyOtp']);
 
 Route::get('/logout',[AdminAuthController::class,'logout']);
+
+Route::get('/usip', function () {
+    return view('museum.gallery.usip');
+})->name('usip');

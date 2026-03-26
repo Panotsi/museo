@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    padding: 20px 40px;
+    background-color: #121212;
+}
+header h1{
+    font-size: clamp(30px, 4vw, 60px);
+    color: #e6b93d;
+}
+header p{
+    font-size: clamp(20px, 2vw, 30px);
+    color: #fff;
+}
+main{
+    color: #e6b93d;
+    background-color: #1e1e1e;
+}
+.container1{
+    padding: clamp(10px, 3vw, 40px);
+    width: 100%;
+    display: flex;
+}
+.con1{
+    width:50%;
+}
+.con1 p{
+    font-size: clamp(15px, 2vw, 20px);
+    padding: 10px 0;
+}
+.con2{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+.con2 img{
+    margin: 10px;
+    width: clamp(130px, 50%, 250px);
+}

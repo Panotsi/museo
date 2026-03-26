@@ -18,7 +18,7 @@ class HomeController
                 'description' => 'Stories and Myths in Agriculture',
                 'image' => asset('images/image1.jpeg'),
                 'button_text' => 'Learn More',
-                'button_link' => '#tickets'
+                'button_link' => route('usip')
             ],
             [
                 'id' => 2,
