@@ -17,13 +17,15 @@ body {
 
 /* --- NAVBAR --- */
 .navbar {
+    width: 70%;
     background-color: rgba(0, 0, 0, 0.7);
-    margin: 10px 20px;
-    padding: 10px 0;
+    backdrop-filter: blur(10px);
+    margin: 10px auto;
+    padding: 10px 20px;
     border-radius: 50px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     border-bottom: 1px solid var(--border-color);
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 .navbar.hide {
     transform: translateY(-150%);
@@ -47,8 +49,8 @@ body {
 
 /* --- CAROUSEL (Home) --- */
 .carousel-item {
-    height: 85vh;
-    min-height: 500px;
+    height: 100vh;
+    min-height: 650px;
     position: relative;
 }
 .carousel-item img {
@@ -231,6 +233,10 @@ body {
 .read-more-btn:hover {
     color: var(--primary-gold-hover);
 }
+/* --- COLLECTION SECTION --- */
+.collections{
+    background-color: var(--card-bg);
+}
 
 /* --- VISIT SECTION --- */
 .visit-title {
@@ -243,7 +249,7 @@ body {
 }
 .visit-section {
     padding: 100px 0;
-    background-color: var(--card-bg);
+    background-color: var(--dark-bg);
     border-top: 1px solid var(--border-color);
 }
 .map-wrapper {
@@ -267,6 +273,13 @@ body {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+    .navbar{
+        width: 100%;
+    }
+    .navbar-brand{
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
     .carousel-item {
         height: 60vh;
     }

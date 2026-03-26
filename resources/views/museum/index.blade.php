@@ -145,13 +145,13 @@
             </div> 
         </div> 
     </section> 
-    <section id="collections" class="py-5 bg-dark">
+    <section id="collections" class="collections py-5">
         <div class="container text-center">
-            <h2 class="mb-5" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color:#c5992a">Museum Collections</h2>
+            <h2 class="mb-5" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color:#c5992a; font-weight: 700">Museum Collections</h2>
                 <div class="row g-4">
                     @foreach($artifacts as $artifact)
                         <div class="col-md-4">
-                            <div class="card bg-dark border-secondary h-100">
+                            <div class="box card border-secondary h-100" style="background-color: #121212">
                                 @if($artifact->image)
                                 <img src="{{ asset('storage/'.$artifact->image) }}" 
                                 class="card-img-top"
