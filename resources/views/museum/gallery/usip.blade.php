@@ -31,8 +31,32 @@
                 <img src="{{ asset('images/gallery/usip2.jpg') }}"/>
             </div>
         </div>
-        <div>
-            
+        <div class="container2">
+            <article>
+                <h2>BICOL LAND & MYTHOLOGY</h2>
+                <p>Geography, Climate of the Region and the Mythology that surrounded the 
+                    pre-colonial land of Bicol, and how these connects and affects with 
+                    agriculture and food
+                </p>
+                <p>Gugurang, Lakapati, Dumangan, Magnindan</p>
+            </article>
+            <article>
+                <h2>BICOL EPIC AND AGRICULTURE</h2>
+                <p>Stories in the epic Ibalong and how it ties with cultivation and agriculture</p>
+            </article>
+            <article>
+                <h2>RICE IN BIKOL DIALECTS & LANGUAGES</h2>
+                <p>from Paroy, Bagas (Bugas), Sinapna, Maluto, Tutong, to Bahaw 
+                    The word rice in different Bikol dialects
+                </p>
+            </article>
+            <article>
+                <h2>AGRICULTURE IN BIKOL LITERATURE</h2>
+                <p>Sa Pangpang Sulong (Abdon Balde) 
+                    Buhay Paraoma (Gil L. Gregorio)
+                </p>
+                <p>Sa Pagdangadang kan Diklom (Jeffrey Valencia)</p>
+            </article>
         </div>
     </main>
 </body>

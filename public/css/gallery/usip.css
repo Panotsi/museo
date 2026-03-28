@@ -20,7 +20,6 @@ main{
 }
 .container1{
     padding: clamp(10px, 3vw, 40px);
-    width: 100%;
     display: flex;
 }
 .con1{
@@ -38,4 +37,17 @@ main{
 .con2 img{
     margin: 10px;
     width: clamp(130px, 50%, 250px);
+}
+.container2{
+    display: flex;
+}
+.container2 article{
+    width: 25%;
+    margin: 4px;
+    padding: 1vw;
+    border-right: 1px solid white;
+}
+article p{
+    color: #c5992a;
+    padding: 5px 0;
 }
