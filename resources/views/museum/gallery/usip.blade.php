@@ -58,6 +58,11 @@
                 <p>Sa Pagdangadang kan Diklom (Jeffrey Valencia)</p>
             </article>
         </div>
+        <div class="images">
+            <img src="{{ asset('images/gallery/usip3.png') }}">
+            <img src="{{ asset('images/gallery/usip4.png') }}">
+            <img src="{{ asset('images/gallery/usip5.png') }}">
+        </div>
     </main>
 </body>
 </html>

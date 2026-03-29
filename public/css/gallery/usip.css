@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 header{
     padding: 20px 40px;
@@ -50,4 +51,67 @@ main{
 article p{
     color: #c5992a;
     padding: 5px 0;
+}
+.images {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    background: #121212;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.images img {
+    height: 250px;
+    width: auto;
+    border-radius: 15px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.images img:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 1024px) {
+    .images img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .con1, .con2{
+        width: 100%;
+    }
+
+    .container2{
+        display: block;
+    }
+    .container2 article{
+        width: 100%;
+        border: none;
+        margin: 0;
+    }
+    article h2{
+        font-size: 1.3rem;
+    }
+    .images{
+        padding: 10px;
+    }
+    .images img {
+        height: 100px;
+        width: 100px;
+    }
+    .images img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .images img {
+        height: 120px;
+    }
 }
