@@ -26,7 +26,7 @@ class HomeController
                 'description' => 'Trade and Farming',
                 'image' => asset('images/image2.jpeg'),
                 'button_text' => 'Learn More',
-                'button_link' => '#gallery'
+                'button_link' => route('uma')
             ],
             [
                 'id' => 3,

@@ -68,3 +68,7 @@ Route::get('/logout',[AdminAuthController::class,'logout']);
 Route::get('/usip', function () {
     return view('museum.gallery.usip');
 })->name('usip');
+
+Route::get('/uma', function () {
+    return view('museum.gallery.uma');
+})->name('uma');
