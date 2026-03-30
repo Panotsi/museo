@@ -63,6 +63,37 @@
             <img src="{{ asset('images/gallery/usip4.png') }}">
             <img src="{{ asset('images/gallery/usip5.png') }}">
         </div>
+        <div class="container3">
+            <div class="image-container">
+                <img src="{{ asset('images/gallery/usip6.jpg') }}" class="center-image">
+            </div>
+            <div class="content-container">
+                <div class="content">
+                    <h3>Geography & Climate</h3>
+                    <p>Bicol land profile and climate in relation to agriculture, being in 
+                        the ring of fire & typhoon belt
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Epic of Ibalon</h3>
+                    <p>Bicol epic and its connection to land cultivation and harvest</p>
+                </div>
+                <div class="content">
+                    <h3>Rice in Bicol dialect</h3>
+                    <p>Different words for rice in the Bicol dialect</p>
+                </div>
+                <div class="content">
+                    <h3>Deity</h3>
+                    <p>Bicol deity of harvest as centerpiece or Kimantong, inventor of 
+                        the plow, as mentioned in Ibalon
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Literature</h3>
+                    <p>Bicol poems on agricutlure</p>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

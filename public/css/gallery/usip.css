@@ -76,6 +76,20 @@ article p{
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
 }
 
+.container3{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 10px;
+}
+.center-image{
+    width: 100%;
+}
+.content{
+    padding: 10px;
+}
+
 @media (max-width: 1024px) {
     .images img {
         height: 200px;
@@ -107,6 +121,10 @@ article p{
     }
     .images img {
         height: 150px;
+    }
+
+    .container3{
+        flex-direction: column;
     }
 }
 
