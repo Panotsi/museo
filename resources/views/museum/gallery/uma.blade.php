@@ -33,70 +33,74 @@
                 </p>
             </div>
             <div class="con2">
-                <img src="{{ asset('images/gallery/usip1.jpg') }}"/>
-                <img src="{{ asset('images/gallery/usip2.jpg') }}"/>
+                <img src="{{ asset('images/gallery/uma1.jpg') }}"/>
+                <img src="{{ asset('images/gallery/uma2.jpg') }}"/>
             </div>
         </div>
         <div class="container2">
             <article>
-                <h2>BICOL LAND & MYTHOLOGY</h2>
-                <p>Geography, Climate of the Region and the Mythology that surrounded the 
-                    pre-colonial land of Bicol, and how these connects and affects with 
-                    agriculture and food
-                </p>
-                <p>Gugurang, Lakapati, Dumangan, Magnindan</p>
-            </article>
-            <article>
-                <h2>BICOL EPIC AND AGRICULTURE</h2>
-                <p>Stories in the epic Ibalong and how it ties with cultivation and agriculture</p>
-            </article>
-            <article>
-                <h2>RICE IN BIKOL DIALECTS & LANGUAGES</h2>
-                <p>from Paroy, Bagas (Bugas), Sinapna, Maluto, Tutong, to Bahaw 
-                    The word rice in different Bikol dialects
+                <h2>INDIGENOUS FARMING</h2>
+                <p>
+                    When the Spaniards reached the region, it was dotted by 
+                    thatched-roof structures used for storing or trading agricultural 
+                    produce. These were the Camarin, Camalig and Tambobong. Rice 
+                    cultivation was already evident, along the root crops. 
                 </p>
             </article>
             <article>
-                <h2>AGRICULTURE IN BIKOL LITERATURE</h2>
-                <p>Sa Pangpang Sulong (Abdon Balde) 
-                    Buhay Paraoma (Gil L. Gregorio)
+                <h2>ASTILLEROS AND ABACA</h2>
+                <p>
+                    Aside from the presence of shipyards in Bicol, the conomic impact 
+                    of galleon trade brought by the need of abaca for ship, together 
+                    with mulberry used for silk production, are two major crops from 
+                    the 18th century Bikol.
                 </p>
-                <p>Sa Pagdangadang kan Diklom (Jeffrey Valencia)</p>
+            </article>
+            <article>
+                <h2>BIKOL TEXTILES</h2>
+                <p>
+                    Sinamai and guinaras fabrics, with abaca as raw material, 
+                    were exported to the nearby regions.
+                </p>
             </article>
         </div>
         <div class="images">
-            <img src="{{ asset('images/gallery/usip3.png') }}">
-            <img src="{{ asset('images/gallery/usip4.png') }}">
-            <img src="{{ asset('images/gallery/usip5.png') }}">
+            <img src="{{ asset('images/gallery/uma3.jpg') }}">
+            <img src="{{ asset('images/gallery/uma4.jpg') }}">
+            <img src="{{ asset('images/gallery/uma5.jpg') }}">
         </div>
         <div class="container3">
             <div class="image-container">
-                <img src="{{ asset('images/gallery/usip6.jpg') }}" class="center-image">
+                <img src="{{ asset('images/gallery/uma6.jpg') }}" class="center-image">
             </div>
             <div class="content-container">
                 <div class="content">
-                    <h3>Geography & Climate</h3>
-                    <p>Bicol land profile and climate in relation to agriculture, being in 
-                        the ring of fire & typhoon belt
+                    <h3>Agriculture in Bicol during the Spanish Period</h3>
+                    <p>
+                        How it shifted from subsistence agriculture to export oriented economy
                     </p>
                 </div>
                 <div class="content">
-                    <h3>Epic of Ibalon</h3>
-                    <p>Bicol epic and its connection to land cultivation and harvest</p>
+                    <h3>Farming Tools</h3>
+                    <p>Indigenous and local farming tools familiar in the region</p>
                 </div>
                 <div class="content">
-                    <h3>Rice in Bicol dialect</h3>
-                    <p>Different words for rice in the Bicol dialect</p>
+                    <h3>Major products</h3>
+                    <p>Abaca, coconut, sugarcane were the main agricultural products</p>
                 </div>
                 <div class="content">
-                    <h3>Deity</h3>
-                    <p>Bicol deity of harvest as centerpiece or Kimantong, inventor of 
-                        the plow, as mentioned in Ibalon
+                    <h3>Abaca</h3>
+                    <p>
+                        Display of raw abaca shows how it is a crucial 
+                        export product, exhibits its process and production
                     </p>
                 </div>
                 <div class="content">
-                    <h3>Literature</h3>
-                    <p>Bicol poems on agricutlure</p>
+                    <h3>Abaca Rope</h3>
+                    <p>
+                        the abaca rope was critical in the galleon 
+                        ships which facilitated international trade
+                    </p>
                 </div>
             </div>
         </div>
