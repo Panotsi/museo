@@ -42,7 +42,7 @@ class HomeController
                 'description' => 'Celebrations of Plentiful Harvest',
                 'image' => asset('images/image4.jpeg'),
                 'button_text' => 'Learn More',
-                'button_link' => '#dinosaurs'
+                'button_link' => route('ugma')
             ],
             [
                 'id' => 5,

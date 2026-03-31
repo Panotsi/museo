@@ -76,3 +76,6 @@ Route::get('/uma', function () {
 Route::get('/unog', function () {
     return view('museum.gallery.unog');
 })->name('unog');
+Route::get('/ugma', function () {
+    return view('museum.gallery.ugma');
+})->name('ugma');
