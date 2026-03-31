@@ -34,7 +34,7 @@ class HomeController
                 'description' => 'Rice and Life',
                 'image' => asset('images/image3.png'),
                 'button_text' => 'Learn More',
-                'button_link' => '#dinosaurs'
+                'button_link' => route('unog')
             ],
             [
                 'id' => 4,

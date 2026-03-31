@@ -72,3 +72,7 @@ Route::get('/usip', function () {
 Route::get('/uma', function () {
     return view('museum.gallery.uma');
 })->name('uma');
+
+Route::get('/unog', function () {
+    return view('museum.gallery.unog');
+})->name('unog');
