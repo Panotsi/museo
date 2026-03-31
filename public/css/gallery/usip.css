@@ -67,7 +67,6 @@ article p{
     border-radius: 15px; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
 }
 
 .images img:hover {

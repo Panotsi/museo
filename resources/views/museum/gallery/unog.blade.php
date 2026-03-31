@@ -81,6 +81,45 @@
                 </p>
             </div>
         </div>
+        <div class="images">
+            <img src="{{ asset('images/gallery/unog3.jpg') }}">
+            <img src="{{ asset('images/gallery/unog4.jpg') }}">
+            <img src="{{ asset('images/gallery/unog5.jpg') }}">
+            <img src="{{ asset('images/gallery/unog6.jpg') }}">
+            <img src="{{ asset('images/gallery/unog7.jpg') }}">
+            <img src="{{ asset('images/gallery/unog8.jpg') }}">
+            <img src="{{ asset('images/gallery/unog9.jpg') }}">
+        </div>
+        <div class="container3">
+            <div class="image">
+                <img src="{{ asset('images/gallery/unog10.jpg') }}" class="center-image">
+            </div>
+            <div class="content-container">
+                <div class="content">
+                    <h3>Bicolano Kitchen</h3>
+                    <p>
+                        Unique kitchen implements 
+                        used in Bicol
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Bicol Cuisine</h3>
+                    <p>Shows the uniqueness of the Bicol culinary arts</p>
+                </div>
+                <div class="content">
+                    <h3>Pottery</h3>
+                    <p>Clay pots, or Kuron, is used extensively in the local kitchens</p>
+                </div>
+                <div class="content">
+                    <h3>Lakes</h3>
+                    <p>Camarines Sur’s three lakes provide plentiful of aquatic resources</p>
+                </div>
+                <div class="content">
+                    <h3>Literature</h3>
+                    <p>Bicol poems on agricutlure</p>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>
