@@ -50,7 +50,7 @@ class HomeController
                 'description' => 'Progress through Agriculture',
                 'image' => asset('images/image5.jpeg'),
                 'button_text' => 'Learn More',
-                'button_link' => '#dinosaurs'
+                'button_link' => route('uswag')
             ],
         ];
 
