@@ -18,12 +18,13 @@
 
         /* Arrow hotspot */
         .custom-arrow {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/892/892692.png');
-            width: 50px;
-            height: 50px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
+    background-image: url("{{ asset('images/arrow.png') }}");
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+}
 
         /* Bottom thumbnails */
         .thumbs {
