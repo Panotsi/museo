@@ -25,6 +25,11 @@
             background-repeat: no-repeat;
             transform: translate(-50%, -50%);
         }
+        .custom-arrow:hover {
+            transition: all 0.4s ease;
+            width: 110px;
+            height: 110px;
+        }
         /* Bottom thumbnails */
         .thumbs {
             position: fixed;
@@ -85,7 +90,14 @@ var viewer = pannellum.viewer('panorama', {
                     yaw: 150,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
-                        viewer.loadScene('room2');
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-30);
+                        viewer.setYaw(150);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room2');
+                        }, 300);
                     }
                 }
             ]
@@ -100,7 +112,29 @@ var viewer = pannellum.viewer('panorama', {
                     yaw: -100,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
-                        viewer.loadScene('room1');
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-15);
+                        viewer.setYaw(-100);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room1');
+                        }, 300);
+                    }
+                },
+                {
+                    pitch: -10,
+                    yaw: 80,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-10);
+                        viewer.setYaw(80);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room1');
+                        }, 300);
                     }
                 }
             ]
