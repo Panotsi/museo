@@ -18,14 +18,13 @@
 
         /* Arrow hotspot */
         .custom-arrow {
-    background-image: url("{{ asset('images/arrow.png') }}");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: translate(-50%, -50%);
-}
-
+            background-image: url("{{ asset('images/arrow.png') }}");
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: translate(-50%, -50%);
+        }
         /* Bottom thumbnails */
         .thumbs {
             position: fixed;
@@ -59,8 +58,8 @@
 
 <!-- Thumbnails -->
 <div class="thumbs">
-    <img src="{{ asset('images/museum360.jpg') }}" onclick="viewer.loadScene('room1')">
-    <img src="{{ asset('images/museum3601.png') }}" onclick="viewer.loadScene('room2')">
+    <img src="{{ asset('images/museum360.png') }}" onclick="viewer.loadScene('room1')">
+    <img src="{{ asset('images/museum361.jpg') }}" onclick="viewer.loadScene('room2')">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
@@ -79,11 +78,11 @@ var viewer = pannellum.viewer('panorama', {
     scenes: {
         room1: {
             type: 'equirectangular',
-            panorama: "{{ asset('images/museum360.jpg') }}",
+            panorama: "{{ asset('images/museum360.png') }}",
             hotSpots: [
                 {
-                    pitch: -10,
-                    yaw: 90,
+                    pitch: -30,
+                    yaw: 150,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
                         viewer.loadScene('room2');
@@ -94,11 +93,11 @@ var viewer = pannellum.viewer('panorama', {
 
         room2: {
             type: 'equirectangular',
-            panorama: "{{ asset('images/museum3601.png') }}",
+            panorama: "{{ asset('images/museum361.jpg') }}",
             hotSpots: [
                 {
-                    pitch: -10,
-                    yaw: -90,
+                    pitch: -15,
+                    yaw: -100,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
                         viewer.loadScene('room1');
