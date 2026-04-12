@@ -77,9 +77,12 @@ var viewer = pannellum.viewer('panorama', {
         compass: true,
         sceneFadeDuration: 1000,
         showZoomCtrl: true,
-        showFullscreenCtrl: true
-    },
+        showFullscreenCtrl: true,
 
+        autoRotate: -5,          // 🔥 makes it rotate automatically
+        autoRotateInactivityDelay: 2000, // starts after 2 seconds
+        autoRotateStopDelay: false
+        },
     scenes: {
         room1: {
             type: 'equirectangular',
