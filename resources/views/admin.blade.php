@@ -55,13 +55,19 @@
     @if($editActivity)
     <hr>
     <h3>Edit Activity</h3>
-        <form action="/admin/activity/update/{{ $editActivity->id }}" method="POST">
+        <form action="/admin/activity/update/{{ $editActivity->id }}" method="POST" enctype="multipart/form-data">
         @csrf
             <input type="text" name="title" class="form-control mb-2"
             value="{{ $editActivity->title }}">
             <textarea name="description" class="form-control mb-2">{{ $editActivity->description }}</textarea>
             <input type="date" name="date" class="form-control mb-3"
             value="{{ $editActivity->date }}">
+            @if($activity->image)
+                <img src="{{ asset('storage/'.$editActivity->image) }}" 
+                class="card-img-top"
+                style="width: 200px;">
+            @endif
+            <input type="file" name="image" class="form-control mb-3">
             <button class="btn btn-warning">Update</button>
             <a href="/admin" class="btn btn-secondary">
             Cancel

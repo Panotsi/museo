@@ -52,11 +52,18 @@ public function storeActivity(Request $request)
 public function updateActivity(Request $request,$id)
 {
     $activity = Activity::findOrFail($id);
+    $image = null;
+
+    if($request->hasFile('image')){
+        $image = $request->file('image')->store('activities','public');
+    }
+
 
     $activity->update([
         'title'=>$request->title,
         'description'=>$request->description,
-        'date'=>$request->date
+        'date'=>$request->date,
+        'image'=>$image
     ]);
 
     return redirect('/admin');
