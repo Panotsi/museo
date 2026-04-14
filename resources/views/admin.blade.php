@@ -1,133 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
-<body class="bg-dark text-light">
-    <div class="container mt-5">
-        <h1 class="mb-4">Museum Admin Dashboard</h1>
-        <!-- ADD ACTIVITY -->
+
+<body>
+<div class="container mt-4">
+
+    <h1 class="mb-4 text-center text-md-start">Museum Admin Dashboard</h1>
+
+    <!-- ADD ACTIVITY -->
+    <div class="section-box">
         <h3>Add Activity</h3>
-        <form action="/admin/activity/store" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="title" class="form-control mb-2" placeholder="Title">
-            <textarea name="description" class="form-control mb-2" placeholder="Description"></textarea>
-            <input type="date" name="date" class="form-control mb-2">
-            <input type="file" name="image" class="form-control mb-3">
-            <button class="btn btn-success">Add Activity</button>
-        </form>
-        <hr>
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addModal">
+            + Add Activity
+        </button>
+    </div>
 
-<!-- ACTIVITIES TABLE -->
+    <!-- ACTIVITIES -->
+    <div class="section-box">
+        <h3>Activities</h3>
 
-    <h3>Activities</h3>
-    <table class="table table-dark table-striped">
-        <thead>
+        <div class="table-responsive">
+        <table class="table table-dark table-striped">
+            <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+
+            <tbody>
             @foreach($activities as $activity)
             <tr>
                 <td>{{ $activity->id }}</td>
+
+                <td>
+                    @if($activity->image)
+                        <img src="{{ asset('storage/'.$activity->image) }}" width="50" height="50">
+                    @endif
+                </td>
+
                 <td>{{ $activity->title }}</td>
                 <td>{{ $activity->date }}</td>
+
                 <td>
-                <a href="/admin?editActivity={{ $activity->id }}" class="btn btn-primary btn-sm">
-                Edit
-                </a>
-                <a href="/admin/activity/delete/{{ $activity->id }}" class="btn btn-danger btn-sm">
-                Delete
-                </a>
+                    <button 
+                        class="btn btn-primary btn-sm editBtn"
+                        data-id="{{ $activity->id }}"
+                        data-title="{{ $activity->title }}"
+                        data-description="{{ $activity->description }}"
+                        data-date="{{ $activity->date }}"
+                        data-image="{{ $activity->image }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editModal">
+                        Edit
+                    </button>
+
+                    <a href="/admin/activity/delete/{{ $activity->id }}" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
                 </td>
             </tr>
             @endforeach
-        </tbody>
-    </table>
-
-<!-- EDIT ACTIVITY -->
-
-    @if($editActivity)
-    <hr>
-    <h3>Edit Activity</h3>
-        <form action="/admin/activity/update/{{ $editActivity->id }}" method="POST" enctype="multipart/form-data">
-        @csrf
-            <input type="text" name="title" class="form-control mb-2"
-            value="{{ $editActivity->title }}">
-            <textarea name="description" class="form-control mb-2">{{ $editActivity->description }}</textarea>
-            <input type="date" name="date" class="form-control mb-3"
-            value="{{ $editActivity->date }}">
-            @if($activity->image)
-                <img src="{{ asset('storage/'.$editActivity->image) }}" 
-                class="card-img-top"
-                style="width: 200px;">
-            @endif
-            <input type="file" name="image" class="form-control mb-3">
-            <button class="btn btn-warning">Update</button>
-            <a href="/admin" class="btn btn-secondary">
-            Cancel
-            </a>
-        </form>
-    @endif
-    
-    <hr>
-
-<!-- ARTIFACT SECTION -->
-
-    <h3>Artifacts</h3>
-
-        <a href="/admin/artifact/create" class="btn btn-success mb-3">
-        Add Artifact
-        </a>
-
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>Accession</th>
-                    <th>Name</th>
-                    <th>Material</th>
-                    <th>Type</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($artifacts as $artifact)
-                <tr>
-                    <td>{{ $artifact->id }}</td>
-                    <td>
-                @if($artifact->image)
-                    <img src="{{ asset('storage/'.$artifact->image) }}" 
-                    class="card-img-top"
-                    style="width: 50px; height: 50px;">
-                @endif
-                    </td>
-                    <td>{{ $artifact->accession_number }}</td>
-                    <td>{{ $artifact->name_of_object }}</td>
-                    <td>{{ $artifact->material }}</td>
-                    <td>{{ $artifact->type }}</td>
-                    <td>
-                    <a href="/admin/artifact/edit/{{ $artifact->id }}" class="btn btn-primary btn-sm">
-                    Edit
-                    </a>
-                    <a href="/admin/artifact/delete/{{ $artifact->id }}" class="btn btn-danger btn-sm">
-                    Delete
-                    </a>
-                    </td>
-                </tr>
-                @endforeach
             </tbody>
         </table>
-        <a href="/logout" class="btn btn-danger">
-        Logout
-        </a>
+        </div>
     </div>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- ARTIFACTS -->
+    <div class="section-box">
+        <h3>Artifacts</h3>
+
+        <a href="/admin/artifact/create" class="btn btn-success mb-3">
+            + Add Artifact
+        </a>
+
+        <div class="table-responsive">
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Accession</th>
+                <th>Name</th>
+                <th>Material</th>
+                <th>Type</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach($artifacts as $artifact)
+            <tr>
+                <td>{{ $artifact->id }}</td>
+
+                <td>
+                    @if($artifact->image)
+                        <img src="{{ asset('storage/'.$artifact->image) }}" width="50" height="50">
+                    @endif
+                </td>
+
+                <td>{{ $artifact->accession_number }}</td>
+                <td>{{ $artifact->name_of_object }}</td>
+                <td>{{ $artifact->material }}</td>
+                <td>{{ $artifact->type }}</td>
+
+                <td>
+                    <a href="/admin/artifact/edit/{{ $artifact->id }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="/admin/artifact/delete/{{ $artifact->id }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+        </div>
+
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+
+</div>
+
+<!-- ADD MODAL -->
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+
+      <form action="/admin/activity/store" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="modal-header">
+          <h5>Add Activity</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" name="title" class="form-control mb-2" placeholder="Title" required>
+          <textarea name="description" class="form-control mb-2" placeholder="Description"></textarea>
+          <input type="date" name="date" class="form-control mb-2" required>
+          <input type="file" name="image" class="form-control">
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success w-100">Save</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+
+      <form id="editForm" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="modal-header">
+          <h5>Edit Activity</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" id="editTitle" name="title" class="form-control mb-2" required>
+          <textarea id="editDescription" name="description" class="form-control mb-2"></textarea>
+          <input type="date" id="editDate" name="date" class="form-control mb-2" required>
+
+          <img id="editImagePreview" class="mb-2" width="100">
+
+          <input type="file" name="image" class="form-control">
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-warning w-100">Update</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.querySelectorAll('.editBtn').forEach(button => {
+    button.addEventListener('click', function () {
+
+        document.getElementById('editTitle').value = this.dataset.title;
+        document.getElementById('editDescription').value = this.dataset.description;
+        document.getElementById('editDate').value = this.dataset.date;
+
+        document.getElementById('editForm').action = `/admin/activity/update/${this.dataset.id}`;
+
+        document.getElementById('editImagePreview').src = this.dataset.image 
+            ? `/storage/${this.dataset.image}` 
+            : '';
+    });
+});
+</script>
+
 </body>
 </html>

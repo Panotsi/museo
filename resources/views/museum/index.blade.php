@@ -92,7 +92,6 @@
                         forms the backbone of our food security. Agriculture is our lifeblood; here, we honor 
                         the hands that feed the community and the soil that sustains us all.
                     </p>
-                    <a href="#" class="btn btn-custom mt-3">Learn More</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-image-wrapper">
