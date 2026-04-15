@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#collections">Collections</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <div class="about-image-wrapper">
                         <!-- Replace with your actual image path -->
                         <img src="{{ asset('images/logo.png') }}" 
-                             alt="Tambobong Heritage" class="img-fluid rounded shadow-lg">
+                        alt="Tambobong Heritage" class="img-fluid rounded shadow-lg">
                     </div>
                 </div>
             </div>
@@ -216,13 +216,40 @@
                             <a href="{{ route('virtual-tour') }}" class="btn btn-custom w-100">
                                 <i class="bi bi-vr"></i> Virtual Tour
                             </a>
-                            <a href="#" class="btn btn-outline-light w-100">Contact Us</a>
+                            <a href="#contacts" class="btn btn-outline-light w-100">Contact Us</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <footer class="footer-container" id="contacts">
+        <div class="tambobong-footer">
+            <div class="footer-logo">
+                <img src="{{ asset('images/logo.png') }}" 
+                alt="Tambobong Logo">
+                <h4>Tambobong</h4>
+            </div>
+            <address>
+                San Agustin,<br>
+                Pili, Camarines Sur,<br>
+                Philippines
+            </address>
+            <a href="mailto:ocfemiaarjay30@gmail.com">ocfemiaarjay30@gmail.com</a>
+        </div>
+        <div class="nav-footer">
+            <table>
+                <p>Navigation</p>
+                <tr>
+                    <td><a href="#">Home</a></td>
+                    <td><a href="#about">About</a></td>
+                    <td><a href="#activities">Activities</a></td>
+                    <td><a href="#collections">Collections</a></td>
+                    <td><a href="#visit">Visit</a></td>
+                </tr>
+            </table>
+        </div>
+    </footer>
 
 
     <!-- Bootstrap JS -->

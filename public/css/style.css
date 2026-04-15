@@ -271,6 +271,58 @@ body {
     color: var(--text-muted);
 }
 
+/*-- Footer --*/
+.footer-container {
+    display: flex;
+    padding: 2em;
+    background-color: var(--card-bg);
+}
+.tambobong-footer {
+    width: 240px;
+    min-width: 35%;
+}
+.footer-logo {
+    display: flex;
+    gap: 0.5em;
+    height: 4em;
+    align-items: center;
+}
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.footer-logo h4{
+    margin: auto 0;
+}
+.tambobong-footer address {
+    color: var(--text-muted);
+}
+.tambobong-footer a{
+    color: var(--text-light);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.tambobong-footer a:hover {
+    color: #0ea5e9;
+    text-decoration: underline;
+}
+
+.nav-footer table tr{
+    display: flex;
+    flex-direction: column;
+}
+.nav-footer table td a{
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.nav-footer table td a:hover{
+    color: var(--text-light);
+    text-decoration: underline;
+}
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .navbar{
