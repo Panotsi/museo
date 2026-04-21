@@ -6,10 +6,14 @@
     --text-light: #e0e0e0;
     --text-muted: #a0a0a0;
     --border-color:overflow-x #333;
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', 'Cinzel', serif;
+    --font-body: 'Lora', 'Merriweather', serif;
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-body);
     overflow-x: hidden;
     background-color: var(--dark-bg);
     color: var(--text-light);
@@ -31,7 +35,7 @@ body {
     transform: translateY(-150%);
 }
 .navbar-brand {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-gold) !important;
@@ -65,7 +69,7 @@ body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 .carousel-caption h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -95,7 +99,7 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 .modern-font {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 700;
     color: var(--primary-gold);
@@ -147,7 +151,7 @@ body {
     background-color: var(--dark-bg);
 }
 .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--primary-gold);
     position: relative;
