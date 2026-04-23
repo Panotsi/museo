@@ -64,7 +64,10 @@
 <!-- Thumbnails -->
 <div class="thumbs">
     <img src="{{ asset('images/museum360.png') }}" onclick="viewer.loadScene('room1')">
-    <img src="{{ asset('images/museum361.jpg') }}" onclick="viewer.loadScene('room2')">
+    <img src="{{ asset('images/museum361.png') }}" onclick="viewer.loadScene('room2')">
+    <img src="{{ asset('images/museum362.png') }}" onclick="viewer.loadScene('room3')">
+    <img src="{{ asset('images/museum363.png') }}" onclick="viewer.loadScene('room4')">
+    <img src="{{ asset('images/museum364.png') }}" onclick="viewer.loadScene('room5')">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
@@ -108,11 +111,11 @@ var viewer = pannellum.viewer('panorama', {
 
         room2: {
             type: 'equirectangular',
-            panorama: "{{ asset('images/museum361.jpg') }}",
+            panorama: "{{ asset('images/museum361.png') }}",
             hotSpots: [
                 {
-                    pitch: -15,
-                    yaw: -100,
+                    pitch: -20,
+                    yaw: -90,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
                         // SUPER close zoom then simple transition
@@ -126,8 +129,8 @@ var viewer = pannellum.viewer('panorama', {
                     }
                 },
                 {
-                    pitch: -10,
-                    yaw: 80,
+                    pitch: -20,
+                    yaw: 90,
                     cssClass: 'custom-arrow',
                     clickHandlerFunc: function() {
                         // SUPER close zoom then simple transition
@@ -136,12 +139,105 @@ var viewer = pannellum.viewer('panorama', {
                         viewer.setHfov(3); // EXTREMELY close!
                         
                         setTimeout(() => {
-                            viewer.loadScene('room1');
+                            viewer.loadScene('room3');
                         }, 300);
                     }
                 }
             ]
-        }
+        },
+        room3: {
+            type: 'equirectangular',
+            panorama: "{{ asset('images/museum362.png') }}",
+            hotSpots: [
+                {
+                    pitch: -30,
+                    yaw: -100,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-15);
+                        viewer.setYaw(-100);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room2');
+                        }, 300);
+                    }
+                },
+                {
+                    pitch: -20,
+                    yaw: 60,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-10);
+                        viewer.setYaw(80);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room4');
+                        }, 300);
+                    }
+                }
+            ]
+        },
+        room4: {
+            type: 'equirectangular',
+            panorama: "{{ asset('images/museum363.png') }}",
+            hotSpots: [
+                {
+                    pitch: -35,
+                    yaw: -115,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-15);
+                        viewer.setYaw(-100);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room3');
+                        }, 300);
+                    }
+                },
+                {
+                    pitch: -25,
+                    yaw: -380,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-10);
+                        viewer.setYaw(80);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room5');
+                        }, 300);
+                    }
+                }
+            ]
+        },
+        room5: {
+            type: 'equirectangular',
+            panorama: "{{ asset('images/museum364.png') }}",
+            hotSpots: [
+                {
+                    pitch: -30,
+                    yaw: -170,
+                    cssClass: 'custom-arrow',
+                    clickHandlerFunc: function() {
+                        // SUPER close zoom then simple transition
+                        viewer.setPitch(-15);
+                        viewer.setYaw(-100);
+                        viewer.setHfov(3); // EXTREMELY close!
+                        
+                        setTimeout(() => {
+                            viewer.loadScene('room4');
+                        }, 300);
+                    }
+                }
+            ]
+        }     
     }
 });
 </script>
