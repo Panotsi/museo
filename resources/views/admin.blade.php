@@ -127,9 +127,73 @@
             </tbody>
         </table>
         </div>
-
-        <a href="/logout" class="btn btn-danger">Logout</a>
     </div>
+
+    <!--For Carousel-->
+    <div class="section-box">
+    <h3>Carousel Slides</h3>
+
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#slideModal">
+        + Add Slide
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Preview</th>
+                    <th>Title</th>
+                    <th>Button</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach($slides as $slide)
+            <tr>
+                <td>{{ $slide->id }}</td>
+
+                <td>
+                    <img src="{{ asset('storage/'.$slide->image) }}" class="slide-img">
+                </td>
+
+                <td>{{ $slide->title }}</td>
+
+                <td>
+                    @if($slide->button_text)
+                        <span class="badge bg-info">{{ $slide->button_text }}</span>
+                    @else
+                        <span class="text-muted">No Button</span>
+                    @endif
+                </td>
+
+                <td>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button 
+                            class="btn btn-primary btn-sm editSlideBtn"
+                            data-id="{{ $slide->id }}"
+                            data-title="{{ $slide->title }}"
+                            data-description="{{ $slide->description }}"
+                            data-button_text="{{ $slide->button_text }}"
+                            data-button_link="{{ $slide->button_link }}"
+                            data-image="{{ $slide->image }}"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editSlideModal">
+                            Edit
+                        </button>
+
+                        <a href="/admin/slide/delete/{{ $slide->id }}" class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
 
 </div>
 
@@ -195,6 +259,68 @@
     </div>
   </div>
 </div>
+<!--Modal for slide-->
+<div class="modal fade" id="editSlideModal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-light">
+
+      <form id="editSlideForm" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="modal-header">
+          <h5>Edit Slide</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" id="editSlideTitle" name="title" class="form-control mb-2" required>
+          <textarea id="editSlideDescription" name="description" class="form-control mb-2"></textarea>
+          <input type="text" id="editSlideButtonText" name="button_text" class="form-control mb-2">
+          <input type="text" id="editSlideButtonLink" name="button_link" class="form-control mb-2">
+
+          <img id="editSlideImagePreview" width="100" class="mb-2">
+
+          <input type="file" name="image" class="form-control">
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-warning w-100">Update</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="slideModal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-light">
+
+      <form action="/admin/slide/store" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="modal-header">
+          <h5>Add Slide</h5>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" name="title" class="form-control mb-2" placeholder="Title" required>
+          <textarea name="description" class="form-control mb-2" placeholder="Description"></textarea>
+          <input type="text" name="button_text" class="form-control mb-2" placeholder="Button Text">
+          <input type="text" name="button_link" class="form-control mb-2" placeholder="Button Link">
+          <input type="file" name="image" class="form-control" required>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success w-100">Save</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
 
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -214,7 +340,23 @@ document.querySelectorAll('.editBtn').forEach(button => {
             : '';
     });
 });
-</script>
 
+document.querySelectorAll('.editSlideBtn').forEach(button => {
+    button.addEventListener('click', function () {
+
+        document.getElementById('editSlideTitle').value = this.dataset.title;
+        document.getElementById('editSlideDescription').value = this.dataset.description;
+        document.getElementById('editSlideButtonText').value = this.dataset.button_text;
+        document.getElementById('editSlideButtonLink').value = this.dataset.button_link;
+
+        document.getElementById('editSlideForm').action = `/admin/slide/update/${this.dataset.id}`;
+
+        document.getElementById('editSlideImagePreview').src = this.dataset.image 
+            ? `/storage/${this.dataset.image}` 
+            : '';
+    });
+});
+</script>
+<a href="/logout" class="btn btn-danger" style="margin: 1rem auto; display: block; width: 100px;">Logout</a>
 </body>
 </html>

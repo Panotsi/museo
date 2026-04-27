@@ -65,6 +65,27 @@ img {
     max-width: 100%;
 }
 
+/* Slide Image Styling */
+.slide-img {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #055481;
+}
+
+/* Better spacing for action buttons */
+td .btn {
+    min-width: 70px;
+}
+
+/* Improve badge look */
+.badge {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
 /* 🔥 RESPONSIVE IMPROVEMENTS */
 
 /* Mobile adjustments */

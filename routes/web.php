@@ -82,3 +82,7 @@ Route::get('/ugma', function () {
 Route::get('/uswag', function () {
     return view('museum.gallery.uswag');
 })->name('uswag');
+
+Route::post('/admin/slide/store',[AdminController::class,'storeSlide']);
+Route::get('/admin/slide/delete/{id}',[AdminController::class,'deleteSlide']);
+Route::post('/admin/slide/update/{id}', [AdminController::class, 'updateSlide']);

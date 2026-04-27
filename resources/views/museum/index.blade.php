@@ -55,7 +55,7 @@
         <div class="carousel-inner">
             @foreach($slides as $key => $slide)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" data-bs-interval="5000">
-                    <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
+                    <img src="{{ asset('storage/'.$slide->image) }}">
                     <div class="carousel-caption">
                         <h1>{{ $slide['title'] }}</h1>
                         <p>{{ $slide['description'] }}</p>
