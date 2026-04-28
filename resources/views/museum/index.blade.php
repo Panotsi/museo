@@ -144,7 +144,8 @@
                 @endforelse
             </div> 
         </div> 
-    </section> 
+    </section>
+<!--Artifacts-->
     <section id="collections" class="collections py-5">
         <div class="container text-center">
             <h2 class="mb-5" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color:#c5992a; font-weight: 700">Museum Collections</h2>
@@ -152,8 +153,12 @@
                     @foreach($artifacts as $artifact)
                         <div class="col-md-4">
                             <div class="box card border-secondary h-100" style="background-color: #121212">
-                                @if($artifact->image)
-                                <img src="{{ asset('storage/'.$artifact->image) }}" 
+                                @if($artifact->images->first())
+                                <img src="{{ asset('storage/'.$artifact->images->first()->image) }}" 
+                                class="card-img-top"
+                                style="width: 50%; height: 50%; margin: 0 auto; padding: 5px;">
+                                @else
+                                <img src="{{ asset('images/no-image.png') }}" 
                                 class="card-img-top"
                                 style="width: 50%; height: 50%; margin: 0 auto; padding: 5px;">
                                 @endif

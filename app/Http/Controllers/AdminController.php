@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Artifact;
-use App\Models\Slide; 
+use App\Models\Slide;
+use App\Models\ArtifactImage;
 
 class AdminController
 {
@@ -87,19 +88,13 @@ public function createArtifact()
 
 public function storeArtifact(Request $request)
 {
-    $image = null;
     $model = null;
 
     if($request->hasFile('model_3d')){
         $model = $request->file('model_3d')->store('model','public');
     }
 
-    if($request->hasFile('image')){
-        $image = $request->file('image')->store('artifacts','public');
-    }
-
-    Artifact::create([
-
+    $artifact = Artifact::create([
         'accession_number'=>$request->accession_number,
         'name_of_object'=>$request->name_of_object,
         'material'=>$request->material,
@@ -123,12 +118,22 @@ public function storeArtifact(Request $request)
         'conservation_process'=>$request->conservation_process,
         'condition_after'=>$request->condition_after,
 
-        'image'=>$image,
         'model_3d'=>$model
     ]);
 
-    return redirect('/admin');
+    // ✅ SAVE MULTIPLE IMAGES
+    if($request->hasFile('images')){
+        foreach($request->file('images') as $img){
+            $path = $img->store('artifacts','public');
 
+            ArtifactImage::create([
+                'artifact_id' => $artifact->id,
+                'image' => $path
+            ]);
+        }
+    }
+
+    return redirect('/admin');
 }
 
 
@@ -138,11 +143,10 @@ public function editArtifact($id)
     return view('admin-artifact-edit',compact('artifact'));
 }
 
+
 public function updateArtifact(Request $request,$id)
 {
     $artifact = Artifact::findOrFail($id);
-
-    $image = $artifact->image;
 
     $model = $artifact->model_3d;
 
@@ -150,12 +154,7 @@ public function updateArtifact(Request $request,$id)
         $model = $request->file('model_3d')->store('model','public');
     }
 
-    if($request->hasFile('image')){
-        $image = $request->file('image')->store('artifacts','public');
-    }
-
     $artifact->update([
-
         'accession_number'=>$request->accession_number,
         'name_of_object'=>$request->name_of_object,
         'material'=>$request->material,
@@ -179,10 +178,28 @@ public function updateArtifact(Request $request,$id)
         'conservation_process'=>$request->conservation_process,
         'condition_after'=>$request->condition_after,
 
-        'image'=>$image,
         'model_3d'=>$model
     ]);
+
+    // ✅ ADD NEW IMAGES
+    if($request->hasFile('images')){
+        foreach($request->file('images') as $img){
+            $path = $img->store('artifacts','public');
+
+            ArtifactImage::create([
+                'artifact_id' => $artifact->id,
+                'image' => $path
+            ]);
+        }
+    }
+
     return redirect('/admin');
+}
+
+public function deleteArtifactImage($id)
+{
+    \App\Models\ArtifactImage::destroy($id);
+    return back();
 }
 
 public function deleteArtifact($id)

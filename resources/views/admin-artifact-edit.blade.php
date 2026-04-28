@@ -9,13 +9,23 @@
     <h2>Edit Artifact</h2>
     <form action="/admin/artifact/update/{{ $artifact->id }}" method="POST" enctype="multipart/form-data">
     @csrf
-        <label>Artifact Image</label><br>
-        @if($artifact->image)
-        <img src="{{ asset('storage/'.$artifact->image) }}" 
-        class="card-img-top"
-        style="width: 200px;">
-        @endif
-        <input type="file" name="image" class="form-control mb-3">
+        <label>Artifact Images</label>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            @foreach($artifact->images as $img)
+            <div style="position: relative;">
+                <img src="{{ asset('storage/'.$img->image) }}" 
+                width="120" 
+                style="border-radius:10px;">
+                <!-- DELETE BUTTON -->
+                <a href="/admin/artifact/image/delete/{{ $img->id }}" 
+                class="btn btn-danger btn-sm"
+                style="position:absolute; top:5px; right:5px;">
+                ✕
+                </a>
+            </div>
+            @endforeach
+        </div>
+        <input type="file" name="images[]" class="form-control mb-3" multiple>
         <label>3D Model</label>
             @if($artifact->model_3d)
             <model-viewer

@@ -108,9 +108,9 @@
                 <td>{{ $artifact->id }}</td>
 
                 <td>
-                    @if($artifact->image)
-                        <img src="{{ asset('storage/'.$artifact->image) }}" width="50" height="50">
-                    @endif
+                  @if($artifact->images->first())
+                    <img src="{{ asset('storage/'.$artifact->images->first()->image) }}" width="50" height="50">
+                  @endif
                 </td>
 
                 <td>{{ $artifact->accession_number }}</td>

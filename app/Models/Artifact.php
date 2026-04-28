@@ -33,4 +33,9 @@ class Artifact extends Model
         'image',
         'model_3d'
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ArtifactImage::class);
+    }
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/artifact.css') }}" rel="stylesheet">
     <title>Artifact</title>
 </head>
@@ -15,14 +16,40 @@
         <div class="disContainer">
             <div class="model">
                 @if($artifact->model_3d)
+                <!-- 3D MODEL -->
                 <model-viewer
-                src="{{ asset('storage/'.$artifact->model_3d) }}"
-                camera-controls
-                auto-rotate
-                style="width: 100%; height: 100%; max-width:300px; height:300px;">
+                    src="{{ asset('storage/'.$artifact->model_3d) }}"
+                    camera-controls
+                    auto-rotate
+                    class="artifact-viewer">
                 </model-viewer>
-                @endif
-            </div>
+                @elseif($artifact->images->count() > 0)
+
+                <!-- IMAGE CAROUSEL -->
+                <div id="artifactCarousel" class="carousel slide artifact-carousel" data-bs-ride="carousel">
+
+                    <div class="carousel-inner">
+
+                    @foreach($artifact->images as $key => $img)
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <img src="{{ asset('storage/'.$img->image) }}" class="carousel-img">
+                        </div>
+                    @endforeach
+
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#artifactCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#artifactCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                    </div>
+
+                    @endif
+
+                </div>
             <div class=measurement>
                 <h3>Measurements</h3>
                 <ul>
@@ -58,5 +85,6 @@
     </div>
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

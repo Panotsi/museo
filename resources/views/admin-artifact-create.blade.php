@@ -9,8 +9,8 @@
         <h2>Add Artifact</h2>
         <form action="/admin/artifact/store" method="POST" enctype="multipart/form-data">
         @csrf
-            <h4>Artifact Image</h4>
-                <input type="file" name="image" class="form-control mb-3">
+            <h4>Artifact Images</h4>
+                <input type="file" name="images[]" class="form-control mb-3" multiple>
             <h4>Artifact Model</h4>
                 <input type="file" name="model_3d" class="form-control mb-3">
         <!-- BASIC INFORMATION -->

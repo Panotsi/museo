@@ -86,3 +86,5 @@ Route::get('/uswag', function () {
 Route::post('/admin/slide/store',[AdminController::class,'storeSlide']);
 Route::get('/admin/slide/delete/{id}',[AdminController::class,'deleteSlide']);
 Route::post('/admin/slide/update/{id}', [AdminController::class, 'updateSlide']);
+
+Route::get('/admin/artifact/image/delete/{id}', [AdminController::class, 'deleteArtifactImage']);

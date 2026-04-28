@@ -25,8 +25,8 @@
                 @foreach($artifacts as $artifact)
                 <tr>
                     <td>
-                        @if($artifact->image)
-                        <img src="{{ asset('storage/'.$artifact->image) }}" width="80">
+                        @if($artifact->images->first())
+                            <img src="{{ asset('storage/'.$artifact->images->first()->image) }}" width="80">
                         @endif
                     </td>
                     <td>{{ $artifact->accession_number }}</td>

@@ -1,45 +1,86 @@
+/* PAGE BASE */
 body {
-    background-color:#1e1e1e;
+    background-color: #1e1e1e;
 }
-.container h1, h3{
+
+/* TITLES */
+.container h1,
+.container h3 {
     color: #c5992a;
     font-weight: 700;
 }
-.container p{
+
+/* TEXT */
+.container p,
+.container li {
     color: #e0e0e0;
 }
-.container li{
-    color: #e0e0e0;
-    padding: 10px 0 0 0;
-    list-style: none;
+
+/* DETAILS INLINE */
+.impDetails {
+    display: inline-block;
+    margin-right: 12px;
 }
-.impDetails{
-    display: inline;
-    padding: 0 10px;
-}
-.disContainer{
+
+/* MAIN LAYOUT */
+.disContainer {
     display: flex;
-    background-color:#414141;
-    margin: 5px;
-    border-radius: 5px;
+    gap: 15px;
+    background-color: #414141;
+    padding: 15px;
+    border-radius: 10px;
+    flex-wrap: wrap;
 }
+
+/* LEFT SIDE (MODEL / CAROUSEL) */
 .model {
-    width: 50%;
+    flex: 1;
+    min-width: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.measurement{
-    width: 50%;
+
+/* RIGHT SIDE */
+.measurement {
+    flex: 1;
+    min-width: 250px;
 }
+
+/* 3D MODEL FIX */
+.artifact-viewer {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    border-radius: 10px;
+    background: #2a2a2a;
+}
+
+/* CAROUSEL FIX */
+.artifact-carousel {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* FORCE SAME IMAGE SIZE */
+.carousel-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; /* IMPORTANT: keeps images uniform */
+    border-radius: 10px;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
     .disContainer {
-        display: flex;
         flex-direction: column;
     }
 
-    .model,
-    .measurement {
-        width: 100%;
+    .artifact-viewer,
+    .artifact-carousel,
+    .carousel-img {
+        height: 280px;
     }
 }
