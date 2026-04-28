@@ -144,7 +144,6 @@
                     <th>ID</th>
                     <th>Preview</th>
                     <th>Title</th>
-                    <th>Button</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -159,14 +158,6 @@
                 </td>
 
                 <td>{{ $slide->title }}</td>
-
-                <td>
-                    @if($slide->button_text)
-                        <span class="badge bg-info">{{ $slide->button_text }}</span>
-                    @else
-                        <span class="text-muted">No Button</span>
-                    @endif
-                </td>
 
                 <td>
                     <div class="d-flex gap-2 flex-wrap">
