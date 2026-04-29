@@ -111,7 +111,7 @@
             <div class="row text-center mb-5">
                 <div class="col-12">
                     <h2 class="section-title fw-bold">Upcoming Activities</h2>
-                    <p class="text-light">Discover events and programs at Tambobong Museum</p>
+                    <p class="act-subtitle">Discover events and programs at Tambobong Museum</p>
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
@@ -148,37 +148,30 @@
 <!--Artifacts-->
     <section id="collections" class="collections py-5">
         <div class="container text-center">
-            <h2 class="mb-5" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color:#c5992a; font-weight: 700">Museum Collections</h2>
+            <h2 class="fw-bold collection-title">Museum Collections</h2>
+            <p class="collection-subtitle">Discover the preserved heritage of the Bicolano people through artifacts</p>
                 <div class="row g-4">
                     @foreach($artifacts as $artifact)
-                        <div class="col-md-4">
-                            <div class="box card border-secondary h-100" style="background-color: #121212">
-                                @if($artifact->images->first())
-                                <img src="{{ asset('storage/'.$artifact->images->first()->image) }}" 
-                                class="card-img-top"
-                                style="width: 50%; height: 50%; margin: 0 auto; padding: 5px;">
-                                @else
-                                <img src="{{ asset('images/no-image.png') }}" 
-                                class="card-img-top"
-                                style="width: 50%; height: 50%; margin: 0 auto; padding: 5px;">
-                                @endif
-                                    <div class="card-body">
-                                        <h5 style="color: #e0e0e0;">
-                                        {{ $artifact->name_of_object }}
-                                        </h5>
-                                        <p style="color: #a0a0a0">
-                                        {{ $artifact->material }} • {{ $artifact->type }}
-                                        </p>
-                                        <a href="{{ route('artifact.show',$artifact->id) }}"
-                                        class="btn btn-custom btn-sm">
-                                        View Artifact
-                                        </a>
-                                    </div>
-                            </div>
+                        <div class="col-md-4 artifact">
+                            @php
+                                $image = $artifact->images->first()
+                                ? asset('storage/'.$artifact->images->first()->image)
+                                : asset('images/no-image.png');
+                            @endphp
+                            <a class="artifact-link" href="{{ route('artifact.show',$artifact->id) }}">
+                                <div class="card-body artifact-bg" style="background-image: url('{{ $image }}');">
+                                </div>
+                            </a>
+                            <h5>
+                                {{ $artifact->name_of_object }}
+                            </h5>
+                            <p>
+                                {{ $artifact->material }} • {{ $artifact->type }}
+                            </p>
                         </div>
                     @endforeach
                 </div>
-            <div class="mt-5">
+            <div class="mt-4">
                 <a href="{{ route('collections') }}" class="btn btn-custom">
                 View Full Collection
                 </a>

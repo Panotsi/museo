@@ -1,19 +1,16 @@
 :root {
-    --primary-gold: #c5992a;
-    --primary-gold-hover: #e6b93d;
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
     --dark-bg: #121212;
     --card-bg: #1e1e1e;
     --text-light: #e0e0e0;
-    --text-muted: #a0a0a0;
+    --text-muted: #cccccc;
     --border-color:overflow-x #333;
-
-    /* Fonts */
-    --font-heading: 'Playfair Display', 'Cinzel', serif;
-    --font-body: 'Lora', 'Merriweather', serif;
+    --font-body: 'Cambria', serif;
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
     overflow-x: hidden;
     background-color: var(--dark-bg);
     color: var(--text-light);
@@ -38,7 +35,7 @@ body {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-gold) !important;
+    color: var(--primary) !important;
     letter-spacing: 1px;
 }
 .nav-link {
@@ -48,7 +45,7 @@ body {
     transition: color 0.3s;
 }
 .nav-link:hover {
-    color: var(--primary-gold) !important;
+    color: var(--primary-hover) !important;
 }
 
 /* --- CAROUSEL (Home) --- */
@@ -56,6 +53,18 @@ body {
     height: 100vh;
     min-height: 650px;
     position: relative;
+}
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(101, 163, 13, 0.2) 10%,  
+        rgba(132, 204, 22, 0.2) 20%,    
+        transparent 60%            
+    );
+    z-index: 1;
 }
 .carousel-item img {
     width: 100%;
@@ -67,17 +76,21 @@ body {
     top: 50%;
     transform: translateY(-50%);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    z-index: 2;
 }
 .carousel-caption h1 {
     font-family: var(--font-heading);
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #fff;
+    color: var(--text-light);
+}
+.carousel-caption p {
+    color: var(--text-muted);
 }
 .btn-custom {
-    background-color: var(--primary-gold);
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--text-light);
     padding: 12px 30px;
     border-radius: 50px;
     text-transform: uppercase;
@@ -87,22 +100,20 @@ body {
     transition: all 0.3s ease;
 }
 .btn-custom:hover {
-    background-color: var(--primary-gold-hover);
+    background-color: var(--primary-hover);
     transform: translateY(-2px);
     color: #fff;
 }
 
 /* --- ABOUT SECTION --- */
 .about-section {
-    padding: 100px 0;
+    padding: 3rem 0;
     background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
 }
 .modern-font {
-    font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-gold);
+    color: var(--primary);
     line-height: 1.2;
 }
 .about-subtitle {
@@ -119,6 +130,7 @@ body {
     line-height: 1.8;
     color: var(--text-light);
     margin-bottom: 20px;
+    text-align: justify;
 }
 .about-image-wrapper {
     position: relative;
@@ -147,25 +159,17 @@ body {
 
 /* --- ACTIVITIES SECTION --- */
 .activity-section {
-    padding: 100px 0;
+    padding: 3rem 0;
     background-color: var(--dark-bg);
 }
 .section-title {
-    font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--primary-gold);
+    color: var(--primary);
     position: relative;
     display: inline-block;
-    margin-bottom: 15px;
 }
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--primary-gold);
-    margin: 15px auto 0;
-    border-radius: 2px;
+.act-subtitle {
+    color: var(--text-muted);
 }
 .activity-card {
     background: var(--card-bg);
@@ -174,12 +178,10 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: all 0.4s ease;
     height: 100%;
-    border: 1px solid var(--border-color);
 }
 .activity-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border-color: var(--primary-gold);
 }
 .img-container {
     width: 100%;
@@ -201,7 +203,7 @@ body {
     position: relative;
 }
 .date-badge {
-    background-color: var(--primary-gold);
+    background-color: var(--primary);
     color: #000;
     padding: 6px 14px;
     border-radius: 20px;
@@ -213,11 +215,10 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 .title {
-    font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--primary);
     margin-top: 10px;
 }
 .description {
@@ -228,31 +229,68 @@ body {
 }
 .read-more-btn {
     text-decoration: none;
-    color: var(--primary-gold);
+    color: var(--primary);
     font-weight: 600;
     font-size: 0.9rem;
     transition: color 0.3s;
     display: inline-block;
 }
 .read-more-btn:hover {
-    color: var(--primary-gold-hover);
+    color: var(--primary-hover);
 }
 /* --- COLLECTION SECTION --- */
 .collections{
     background-color: var(--card-bg);
 }
 
+.collection-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.artifact-bg {
+    height: 25em; /* fixed height for consistency */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* pushes content to bottom */
+    border-radius: 10px;
+    padding: 10px;
+}
+.artifact-link .artifact-bg {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artifact-link:hover .artifact-bg {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+.artifact-link {
+    text-decoration: none;
+}
+.artifact h5 {
+    color: var(--text-light);
+    margin-top: 10px;
+}
+.artifact p {
+    color: var(--text-muted);
+}
+.collection-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
 /* --- VISIT SECTION --- */
 .visit-title {
-    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--primary-gold);
+    color: var(--primary);
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
 }
 .visit-section {
-    padding: 100px 0;
+    padding: 3rem 0;
     background-color: var(--dark-bg);
     border-top: 1px solid var(--border-color);
 }
@@ -262,14 +300,13 @@ body {
 }
 .visit-info-box {
     background-color: var(--dark-bg);
-    border-left: 5px solid var(--primary-gold);
     color: var(--text-light);
 }
 .border-gold {
-    border-color: var(--primary-gold) !important;
+    border-color: var(--primary) !important;
 }
 .visit-section .section-title {
-    color: var(--primary-gold);
+    color: var(--primary);
 }
 .visit-section p {
     color: var(--text-muted);
@@ -347,9 +384,6 @@ body {
     }
     .section-title {
         font-size: 2rem;
-    }
-    .about-image-wrapper {
-        margin-top: 30px;
     }
     .about-image-wrapper::before {
         top: -10px;
