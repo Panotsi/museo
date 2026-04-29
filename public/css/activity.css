@@ -1,5 +1,17 @@
+:root {
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --row-bg: #181818;
+    --text-light: #e0e0e0;
+    --text-muted: #bdbdbd;
+    --border-color: #333;
+    --font-body: 'Cambria', serif;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     background-color: #121212;
 }
 /* Centers the content of activities*/
@@ -9,7 +21,7 @@ body {
 }
 
 .activity-title {
-    color: #c5992a;
+    color: var(--primary);
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.3;
@@ -18,7 +30,7 @@ body {
 
 .activity-date {
     font-size: 1rem;
-    color: #6c757d;
+    color: var(--text-muted);
     margin-bottom: 30px;
 }
 
@@ -38,19 +50,19 @@ body {
 .activity-description {
     font-size: 1rem;
     line-height: 1.8;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 /*back button style*/
 .btn-back {
     display: inline-block;
-    color: #c5992a !important;
+    color: var(--primary) !important;
     text-decoration: none;
     font-weight: 500;
     margin-top: 30px;
 }
 
 .btn-back:hover {
-    color: #a97b05 !important;
+    color: var(--primary-hover) !important;
 }
 
 @media (max-width: 768px) {
