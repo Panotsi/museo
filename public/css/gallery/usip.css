@@ -1,7 +1,21 @@
+:root {
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --row-bg: #181818;
+    --text-light: #e0e0e0;
+    --text-muted: #bdbdbd;
+    --border-color: #333;
+    --font-body: 'Cambria', serif;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-body);
+    color: var(--text-light)
 }
 header{
     padding: 20px 40px;
@@ -9,14 +23,12 @@ header{
 }
 header h1{
     font-size: clamp(30px, 4vw, 60px);
-    color: #e6b93d;
+    color: var(--primary);
 }
 header p{
     font-size: clamp(20px, 2vw, 30px);
-    color: #fff;
 }
 main{
-    color: #e6b93d;
     background-color: #1e1e1e;
 }
 .container1{
@@ -48,8 +60,10 @@ main{
     border-right: 1px solid white;
 }
 article p{
-    color: #c5992a;
     padding: 5px 0;
+}
+article h2{
+    color: var(--primary)
 }
 .images {
     display: flex;
@@ -86,6 +100,9 @@ article p{
 }
 .content{
     padding: 10px;
+}
+.content h3{
+    color: var(--primary);
 }
 
 @media (max-width: 1024px) {
