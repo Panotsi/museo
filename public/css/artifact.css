@@ -1,38 +1,42 @@
-/* PAGE BASE */
-body {
-    background-color: #1e1e1e;
+:root {
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --row-bg: #181818;
+    --text-light: #e0e0e0;
+    --text-muted: #bdbdbd;
+    --border-color: #333;
+    --font-body: 'Cambria', serif;
 }
 
-/* TITLES */
+body {
+    background-color: var(--dark-bg);
+    font-family: var(--font-body);
+    color: var(--text-muted);
+}
+
 .container h1,
 .container h3 {
-    color: #c5992a;
+    color: var(--primary);
     font-weight: 700;
 }
 
-/* TEXT */
-.container p,
-.container li {
-    color: #e0e0e0;
-}
-
-/* DETAILS INLINE */
 .impDetails {
     display: inline-block;
     margin-right: 12px;
+    color: var(--text-light);
 }
 
-/* MAIN LAYOUT */
 .disContainer {
     display: flex;
     gap: 15px;
-    background-color: #414141;
+    background-color: var(--card-bg);
     padding: 15px;
     border-radius: 10px;
     flex-wrap: wrap;
 }
 
-/* LEFT SIDE (MODEL / CAROUSEL) */
 .model {
     flex: 1;
     min-width: 280px;
@@ -41,13 +45,11 @@ body {
     align-items: center;
 }
 
-/* RIGHT SIDE */
 .measurement {
     flex: 1;
     min-width: 250px;
 }
 
-/* 3D MODEL FIX */
 .artifact-viewer {
     width: 100%;
     max-width: 450px;
@@ -56,7 +58,6 @@ body {
     background: #2a2a2a;
 }
 
-/* CAROUSEL FIX */
 .artifact-carousel {
     width: 100%;
     max-width: 450px;
@@ -64,11 +65,10 @@ body {
     overflow: hidden;
 }
 
-/* FORCE SAME IMAGE SIZE */
 .carousel-img {
     width: 100%;
     height: 350px;
-    object-fit: cover; /* IMPORTANT: keeps images uniform */
+    object-fit: cover; 
     border-radius: 10px;
 }
 

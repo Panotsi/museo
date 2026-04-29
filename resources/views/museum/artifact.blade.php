@@ -8,8 +8,8 @@
     <title>Artifact</title>
 </head>
 <body>
-    <div class="container">
-        <h1>{{ $artifact->name_of_object }}</h1>
+    <div class="container py-4">
+        <h1 >{{ $artifact->name_of_object }}</h1>
         <p class="impDetails"><strong>Accession Number:</strong> {{ $artifact->accession_number }}</p>
         <p class="impDetails"><strong>Material:</strong> {{ $artifact->material }}</p>
         <p class="impDetails"><strong>Type:</strong> {{ $artifact->type }}</p>
