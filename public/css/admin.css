@@ -1,122 +1,164 @@
 :root {
-    --primary-gold: #c5992a;
-    --primary-gold-hover: #e6b93d;
-    --text-light: #e0e0e0;
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
     --dark-bg: #121212;
     --card-bg: #1e1e1e;
+    --text-light: #e0e0e0;
+    --text-muted: #cccccc;
+    --border-color:overflow-x #333;
+    --font-body: 'Cambria', serif;
 }
+
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark-bg);
+    font-family: var(--font-body);
+    background: var(--dark-bg);
     color: var(--text-light);
 }
 
-h1, h3 {
-    color: var(--primary-gold);
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    color: var(--primary);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+/* TITLE */
+.topbar-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary);
+}
+/* WRAPPER */
+.admin-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: var(--card-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+}
+
+h3{
+    color: var(--primary);
     font-weight: 600;
 }
 
-.container {
-    max-width: 1200px;
+.logo {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar a {
+    color: var(--text-light);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: var(--primary);
+    color: white;
+}
+
+.logout-btn {
+    margin-top: auto;
+    background: #b91c1c;
+    text-align: center;
+}
+
+.logout-btn:hover{
+    background: #dc2626 !important;
+}
+
+.offcanvas-header{
+    background-color: var(--primary);
+}
+
+/* MAIN */
+.main-content {
+    margin-left: 250px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 0;
+}
+
+/* SECTION */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
 }
 
 .section-box {
     background: var(--card-bg);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    margin-bottom: 25px;
-}
-
-.btn-success {
-    background: #055481;
-    border: none;
-}
-
-.btn-success:hover {
-    background: #033b5c;
-}
-
-.btn-primary { background: #3b82f6; border: none; }
-.btn-warning { background: #f59e0b; border: none; color: #000; }
-.btn-danger { background: #ef4444; border: none; }
-
-.table thead {
-    background: #055481;
-}
-
-.form-control {
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
-}
-
-.form-control:focus {
-    box-shadow: 0 0 5px #055481;
-}
-
-.modal-content {
-    border-radius: 15px;
-}
-
-img {
-    border-radius: 10px;
-    object-fit: cover;
-    max-width: 100%;
-}
-
-/* Slide Image Styling */
-.slide-img {
-    width: 80px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #055481;
-}
-
-/* Better spacing for action buttons */
-td .btn {
-    min-width: 70px;
-}
-
-/* Improve badge look */
-.badge {
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 20px;
-}
-
-/* 🔥 RESPONSIVE IMPROVEMENTS */
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-h1 {
-    font-size: 22px;
-}
-
-h3 {
-    font-size: 18px;
-}
-
-.section-box {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    
 }
 
-.btn {
-    width: 100%;
-    margin-bottom: 5px;
+
+/* TABLE */
+.table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--primary);
+    z-index: 2;
 }
 
-td .btn {
-    display: block;
+.action-button {
+    display: flex;
+    gap: 10px;
 }
 
-.modal-dialog {
-    margin: 10px;
-}
-}
+/* MOBILE */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 
-/* Make table scrollable */
-.table-responsive {
-    overflow-x: auto;
+    .main-content {
+        margin-left: 0;
+    }
+    .section-box {
+        margin-top: 55px;
+    }
 }
