@@ -7,6 +7,7 @@ use App\Models\Activity;
 use App\Models\Artifact;
 use App\Models\Slide;
 use App\Models\ArtifactImage;
+use App\Models\Publication;
 
 class AdminController
 {
@@ -17,7 +18,8 @@ public function index(Request $request)
 {
     $activities = Activity::orderBy('date','asc')->get();
     $artifacts = Artifact::latest()->get();
-    $slides = Slide::latest()->get(); // ✅ ADD THIS
+    $slides = Slide::latest()->get();
+    $publications = Publication::latest()->get();
 
     $editActivity = null;
 
@@ -28,7 +30,8 @@ public function index(Request $request)
     return view('admin',compact(
         'activities',
         'artifacts',
-        'slides', // ✅ ADD THIS
+        'slides',
+        'publications',
         'editActivity'
     ));
 }
@@ -256,4 +259,71 @@ public function updateSlide(Request $request, $id)
     return redirect('/admin');
 }
 
+public function createPublication()
+{
+    return view('admin.publications.create');
+}
+
+public function storePublication(Request $request)
+{
+    $request->validate([
+        'title' => 'required',
+        'image' => 'required|image',
+        'pdf' => 'required|mimes:pdf'
+    ]);
+
+    $imagePath = $request->file('image')->store('publications/images', 'public');
+    $pdfPath = $request->file('pdf')->store('publications/pdfs', 'public');
+
+    Publication::create([
+        'title' => $request->title,
+        'description' => $request->description,
+        'image' => $imagePath,
+        'pdf' => $pdfPath
+    ]);
+
+    return redirect()->back()->with('success', 'Publication uploaded successfully');
+}
+
+public function deletePublication($id)
+{
+    $publication = Publication::findOrFail($id);
+
+    if ($publication->image) {
+        \Storage::disk('public')->delete($publication->image);
+    }
+
+    if ($publication->pdf) {
+        \Storage::disk('public')->delete($publication->pdf);
+    }
+
+    $publication->delete();
+
+    return redirect()->back()->with('success', 'Publication deleted successfully');
+}
+
+public function updatePublication(Request $request, $id)
+{
+    $publication = Publication::findOrFail($id);
+
+    $image = $publication->image;
+    $pdf = $publication->pdf;
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image')->store('publications/images', 'public');
+    }
+
+    if ($request->hasFile('pdf')) {
+        $pdf = $request->file('pdf')->store('publications/pdfs', 'public');
+    }
+
+    $publication->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'image' => $image,
+        'pdf' => $pdf
+    ]);
+
+    return redirect()->back()->with('success', 'Updated successfully');
+}
 }

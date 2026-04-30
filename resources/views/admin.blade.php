@@ -186,6 +186,76 @@
     </div>
 </div>
 
+
+<div class="section-box">
+    <h3>Publications</h3>
+
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#publicationModal">
+        + Add Publication
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>PDF</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach($publications as $pub)
+                <tr>
+                    <td>{{ $pub->id }}</td>
+
+                    <td>
+                        <img src="{{ asset('storage/'.$pub->image) }}" width="60" height="60" style="object-fit: cover; border-radius: 8px;">
+                    </td>
+
+                    <td>{{ $pub->title }}</td>
+
+                    <td>
+                        {{ Str::limit($pub->description, 50) }}
+                    </td>
+
+                    <td>
+                        <a href="{{ asset('storage/'.$pub->pdf) }}" target="_blank" class="btn btn-warning btn-sm">
+                            View
+                        </a>
+                    </td>
+
+                    <td>
+                      <div class="d-flex gap-2 flex-wrap">
+                      <button
+                        class="btn btn-primary btn-sm editPublicationBtn"
+                        data-id="{{ $pub->id }}"
+                        data-title="{{ $pub->title }}"
+                        data-description="{{ $pub->description }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editPublicationModal">
+                        Edit
+                      </button>
+                      <form action="{{ route('admin.publications.delete', $pub->id) }}" method="POST" onsubmit="return confirm('Delete this publication?')">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger btn-sm">
+                          Delete
+                        </button>
+                      </form>
+                      </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 </div>
 
 <!-- ADD MODAL -->
@@ -313,6 +383,70 @@
   </div>
 </div>
 
+<div class="modal fade" id="publicationModal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-light">
+
+      <form action="{{ route('admin.publications.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="modal-header">
+          <h5>Add Publication</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" name="title" class="form-control mb-2" placeholder="Title" required>
+          <textarea name="description" class="form-control mb-2" placeholder="Description"></textarea>
+          <label for="image">Image</label>
+          <input type="file" name="image" id="image" class="form-control mb-2" required>
+          <label for="pdf">PDF</label>
+          <input type="file" name="pdf" id="pdf" class="form-control" required>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success w-100">Save</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editPublicationModal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-light">
+
+      <form id="editPublicationForm" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+        <div class="modal-header">
+          <h5>Edit Publication</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="text" id="editPubTitle" name="title" class="form-control mb-2" required>
+
+          <textarea id="editPubDescription" name="description" class="form-control mb-2"></textarea>
+          <label for="image">Image</label>
+          <input type="file" name="image" class="form-control mb-2" id="image">
+          <label for="pdf">PDF</label>
+          <input type="file" name="pdf" class="form-control" id="pdf">
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-warning w-100">Update</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -345,6 +479,17 @@ document.querySelectorAll('.editSlideBtn').forEach(button => {
         document.getElementById('editSlideImagePreview').src = this.dataset.image 
             ? `/storage/${this.dataset.image}` 
             : '';
+    });
+});
+
+document.querySelectorAll('.editPublicationBtn').forEach(button => {
+    button.addEventListener('click', function () {
+
+        document.getElementById('editPubTitle').value = this.dataset.title;
+        document.getElementById('editPubDescription').value = this.dataset.description;
+
+        document.getElementById('editPublicationForm').action =
+            `/admin/publications/update/${this.dataset.id}`;
     });
 });
 </script>

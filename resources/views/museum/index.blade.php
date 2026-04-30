@@ -140,10 +140,36 @@
             </div> 
         </div> 
     </section>
+   <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+        {{-- FIRST SET --}}
+        @foreach($publications as $pub)
+            <div class="carousel-card">
+                <a href="{{ asset('storage/'.$pub->pdf) }}" target="_blank">
+                    <img src="{{ asset('storage/'.$pub->image) }}">
+                </a>
+            </div>
+        @endforeach
+
+        {{-- DUPLICATE SET (IMPORTANT FOR INFINITE LOOP) --}}
+        @foreach($publications as $pub)
+            <div class="carousel-card">
+                <a href="{{ asset('storage/'.$pub->pdf) }}" target="_blank">
+                    <img src="{{ asset('storage/'.$pub->image) }}">
+                </a>
+            </div>
+        @endforeach
+
+    </div>
+    <a href="{{ route('collections') }}">
+        View More
+    </a>
+</div>
 <!--Artifacts-->
     <section id="collections" class="collections py-5">
         <div class="container text-center">
-            <h2 class="fw-bold collection-title">Museum Collections</h2>
+            <h2 class="fw-bold collection-title">Museum Artifacts</h2>
             <p class="collection-subtitle">Discover the preserved heritage of the Bicolano people through artifacts</p>
                 <div class="row g-4">
                     @foreach($artifacts as $artifact)
@@ -168,7 +194,7 @@
                 </div>
             <div class="mt-4">
                 <a href="{{ route('collections') }}" class="btn btn-custom">
-                View Full Collection
+                View Artifacts
                 </a>
             </div>
         </div>
@@ -266,6 +292,22 @@
 
             lastScrollTop = scrollTop;
         });
-    </script>
+const track = document.getElementById("carouselTrack");
+
+let speed = 1;
+
+function autoScroll() {
+    track.scrollLeft += speed;
+
+    // smooth infinite loop (because duplicated items)
+    if (track.scrollLeft >= track.scrollWidth / 2) {
+        track.scrollLeft = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+</script>
 </body>
 </html>

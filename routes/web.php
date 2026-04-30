@@ -88,3 +88,13 @@ Route::get('/admin/slide/delete/{id}',[AdminController::class,'deleteSlide']);
 Route::post('/admin/slide/update/{id}', [AdminController::class, 'updateSlide']);
 
 Route::get('/admin/artifact/image/delete/{id}', [AdminController::class, 'deleteArtifactImage']);
+
+Route::get('/admin/publications/create', [AdminController::class, 'createPublication']);
+
+Route::post('/admin/publications', [AdminController::class, 'storePublication'])
+    ->name('admin.publications.store');
+
+Route::delete('/admin/publications/{id}', [AdminController::class, 'deletePublication'])
+    ->name('admin.publications.delete');
+Route::put('/admin/publications/update/{id}', [AdminController::class, 'updatePublication'])
+    ->name('admin.publications.update');
