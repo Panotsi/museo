@@ -1,0 +1,108 @@
+:root {
+    --primary: #65a30d;
+    --primary-hover: #84cc16;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-light: #e0e0e0;
+    --text-muted: #cccccc;
+    --border-color:overflow-x #333;
+    --font-body: 'Cambria', serif;
+}
+body {
+    background: var(--dark-bg);
+    font-family: var(--font-body);
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: var(--primary)
+}
+
+/* GRID */
+.pub-grid {
+    display: grid;
+    gap: 20px;
+
+    /* 📱 default = 2 columns (IMPORTANT: not 1) */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* tablet */
+@media (min-width: 768px) {
+    .pub-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* desktop */
+@media (min-width: 992px) {
+    .pub-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* CARD */
+.pub-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* FIXED SIZE BOX */
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 350px;   /* fixed height */
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* IMAGE */
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+/* TEXT */
+.overlay span {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    transform: translateY(10px);
+    transition: 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.img-wrapper:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.6);
+}
+
+.img-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.img-wrapper:hover .overlay span {
+    transform: translateY(0);
+}

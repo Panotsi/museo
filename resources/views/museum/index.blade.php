@@ -143,7 +143,6 @@
    <div class="carousel-wrapper">
     <div class="carousel-track" id="carouselTrack">
 
-        {{-- FIRST SET --}}
         @foreach($publications as $pub)
             <div class="carousel-card">
                 <a href="{{ asset('storage/'.$pub->pdf) }}" target="_blank">
@@ -151,8 +150,6 @@
                 </a>
             </div>
         @endforeach
-
-        {{-- DUPLICATE SET (IMPORTANT FOR INFINITE LOOP) --}}
         @foreach($publications as $pub)
             <div class="carousel-card">
                 <a href="{{ asset('storage/'.$pub->pdf) }}" target="_blank">
@@ -162,7 +159,7 @@
         @endforeach
 
     </div>
-    <a href="{{ route('collections') }}">
+    <a href="{{ route('publications') }}">
         View More
     </a>
 </div>

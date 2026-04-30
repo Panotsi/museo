@@ -24,4 +24,10 @@ class HomeController
         return view('museum.index', compact('slides', 'activities', 'artifacts', 'publications'));
 
     }
+    public function publications()
+    {
+        $publications = Publication::latest()->get();
+
+        return view('museum.publications', compact('publications'));
+    }
 }

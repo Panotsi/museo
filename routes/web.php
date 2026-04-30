@@ -98,3 +98,5 @@ Route::delete('/admin/publications/{id}', [AdminController::class, 'deletePublic
     ->name('admin.publications.delete');
 Route::put('/admin/publications/update/{id}', [AdminController::class, 'updatePublication'])
     ->name('admin.publications.update');
+
+Route::get('/publications', [HomeController::class, 'publications'])->name('publications');
