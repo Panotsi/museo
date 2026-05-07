@@ -18,7 +18,7 @@ body {
 
 /* --- NAVBAR --- */
 .navbar {
-    width: 70%;
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     margin: 10px auto;
@@ -46,6 +46,23 @@ body {
 }
 .nav-link:hover {
     color: var(--primary-hover) !important;
+}
+.call-to-action{
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 8px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    max-width: 200px;
+}
+.call-to-action:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
 }
 
 /* --- CAROUSEL (Home) --- */
@@ -468,5 +485,8 @@ body {
     }
     .visit-info-box {
         margin-top: 30px;
+    }
+    .call-to-action{
+        margin: 10px 0;
     }
 }

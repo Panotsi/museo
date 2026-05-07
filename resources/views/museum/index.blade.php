@@ -30,6 +30,9 @@
                     <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacts">Contact</a></li>
                 </ul>
+                <a href="{{ route('virtual-tour') }}" class="btn call-to-action w-100">
+                    Virtual Tour
+                </a>
             </div>
         </div>
     </nav>
